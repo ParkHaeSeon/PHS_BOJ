@@ -14,8 +14,6 @@ int main(void)
 
 	scanf("%d", &count);
 
-
-
 	while (count--)
 	{
 		int Num[12] = { 0, };
