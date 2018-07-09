@@ -40,6 +40,5 @@ int main(void)
 
 	printf("%d\n", M);
 	
-
 	return 0;
 }
