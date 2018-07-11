@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <string.h>
 
-int T = 0; // 테스트 케이스
-int k = 0; // 층
-int n = 0; // 호
+int T = 0; // test case
+int k = 0; // floor
+int n = 0; // room number
 
 int cnt[15][15] = { 0, };
 
