@@ -13,7 +13,7 @@ void people(int floor, int number)
 	{
 		for (int f_n = 1; f_n <= number; f_n++)
 		{
-			cnt[f][f_n] = cnt[f][f_n - 1] + cnt[f - 1][f_n];
+			cnt[f][f_n] = cnt[f][f_n - 1] + cnt[f - 1][f_n]; //[floor][room number]
 		}
 	}
 }
