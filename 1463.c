@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdbool.h>
 
-int dp[1000000];
+int dp[1000001];
 
 int min(int a, int b)
 {
