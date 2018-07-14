@@ -1,5 +1,4 @@
-// 2018³â »ó¹İ±â »ï¼º SDS SW ¿ª·® Å×½ºÆ® ±âÃâ¹®Á¦ 
-// ¹éÁØ 15683¹ø °¨½Ã
+
 
 #include <iostream>
 #include <cstdio>
@@ -13,11 +12,11 @@ vector<vector<int> > adj;
 
 bool visit[1001] = { false, };
 
-int N = 0, M = 0; // N : Á¤Á¡ °³¼ö, M : °£¼± °³¼ö
+int N = 0, M = 0; // N : ì •ì  ê°œìˆ˜, M : ê°„ì„  ê°œìˆ˜
 
-int Connected_Component = 1; // ¿¬°á ¿ä¼ÒÀÇ °³¼ö
+int Connected_Component = 1; // ì—°ê²° ìš”ì†Œì˜ ê°œìˆ˜
 
-void addEdge(int s, int e) // °£¼± Ãß°¡ ÇÔ¼ö
+void addEdge(int s, int e) // ê°„ì„  ì¶”ê°€ í•¨ìˆ˜
 {
 	adj[s].push_back(e);
 	adj[e].push_back(s);
@@ -55,13 +54,13 @@ void DFS_search()
 
 int main()
 {
-	int vs = 0, ve = 0; // vs : °£¼± ½ÃÀÛÁ¡, ve : °£¼± ³¡Á¡
+	int vs = 0, ve = 0; // vs : ê°„ì„  ì‹œì‘ì , ve : ê°„ì„  ëì 
 
 	scanf("%d %d", &N, &M);
 
 	adj.resize(N+1);
 
-	for (int i = 0; i < M; i++) // °£¼± Ãß°¡
+	for (int i = 0; i < M; i++) // ê°„ì„  ì¶”ê°€
 	{
 		scanf("%d %d", &vs, &ve);
 
