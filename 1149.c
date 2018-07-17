@@ -28,7 +28,6 @@ int main(void)
 	}
 
 	printf("%d\n", min(min(N[i-1][0], N[i-1][1]), N[i-1][2]));
-
-
+	
 	return 0;
 }
