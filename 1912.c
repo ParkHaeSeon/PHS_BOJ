@@ -37,7 +37,6 @@ int main(void)
 		if (var <= Max[i]) var = Max[i];
 	}
 
-
 	printf("%d\n", var);
 
 	return 0;
