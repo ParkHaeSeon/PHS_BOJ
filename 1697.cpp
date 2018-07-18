@@ -7,10 +7,10 @@
 
 using namespace std;
 
-int N = 0; // ¼öºóÀÌ À§Ä¡
-int K = 0; // µ¿»ıÀÇ À§Ä¡
+int N = 0; // ìˆ˜ë¹ˆì´ ìœ„ì¹˜
+int K = 0; // ë™ìƒì˜ ìœ„ì¹˜
 
-queue<pair<int, int> > q; // À§Ä¡ ÀúÀå ¹× ½Ã°£(ÃÊ) ÀúÀå
+queue<pair<int, int> > q; // ìœ„ì¹˜ ì €ì¥ ë° ì‹œê°„(ì´ˆ) ì €ì¥
 
 int visit[100001] = { 0, };
 
@@ -47,14 +47,14 @@ int find(int start, int end)
 			{
 				q.push(make_pair(pos + 1, cnt + 1));
 
-				visit[pos - 1] = 1;
+				visit[pos + 1] = 1;
 			}
 
 			if (2 * pos <= 100000 && visit[2 * pos] == 0)
 			{
 				q.push(make_pair(2 * pos, cnt + 1));
 
-				visit[pos - 1] = 1;
+				visit[2 * pos] = 1;
 			}
 		}
 	}
