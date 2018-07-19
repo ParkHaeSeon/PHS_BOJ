@@ -3,7 +3,7 @@
 #include <cstring>
 #include <algorithm>
 
-int N = 0; // 수열의 크기
+int N = 0;
 int num[1001] = { 0, };
 int dp[1001] = { 0, };
 
