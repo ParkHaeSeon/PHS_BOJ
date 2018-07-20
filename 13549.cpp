@@ -65,7 +65,5 @@ int main(void)
 
 	printf("%d\n", find(N, K));
 
-	//printf("%d\n", Cnt);
-	
 	return 0;
 }
