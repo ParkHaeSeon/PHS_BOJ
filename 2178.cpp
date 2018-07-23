@@ -1,3 +1,86 @@
+#include <cstdio>
+#include <cstring>
+#include <iostream>
+#include <algorithm>
+#include <string>
+#include <queue>
+
+using namespace std;
+
+queue<pair<int, int> > q;
+
+int visit[101][101] = { 0, };
+int n[101][101] = { 0, };
+int N = 0;
+int M = 0;
+
+int dy[4] = { -1, 0, 1, 0 };
+int dx[4] = { 0, -1, 0, 1 };
+
+int BFS(int y, int x)
+{
+	int count = 1;
+
+	visit[y][x] = 1;
+
+	q.push(make_pair(y, x));
+
+	while (!q.empty())
+	{
+		int qSize = q.size();
+
+		for (int size = 0; size < qSize; size++)
+		{
+			int qy = q.front().first;
+			int qx = q.front().second;
+
+			q.pop();
+
+			if (qx == M && qy == N) return count; // 이거 반드시 있어야함.
+
+			for (int index = 0; index < 4; index++)
+			{
+				int Y = qy + dy[index];
+				int X = qx + dx[index];
+
+				if ( 1<= X && X <= M  && 1<=Y && Y<=N && (n[Y][X] == 1) && (visit[Y][X] == 0))
+				{
+
+					visit[Y][X] = 1;
+
+					q.push(make_pair(Y, X));
+					
+				}
+			}
+		}
+
+		++count;
+	}
+
+	return count;
+}
+
+int main(void)
+{
+	scanf("%d %d", &N, &M);
+
+	for (int i = 1; i <= N; i++) // N=y=i=세로
+	{
+		for (int j = 1; j <= M; j++) // M=x=j=가로
+		{
+			scanf("%1d", &n[i][j]);
+		}
+	}
+	
+	printf("%d\n", BFS(1, 1));
+
+	return 0;
+}
+
+
+
+/*
+
 #include <iostream>
 #include <queue>
 #include <algorithm>
@@ -98,3 +181,5 @@ int main(void)
 
 	return 0;
 }
+
+*/
