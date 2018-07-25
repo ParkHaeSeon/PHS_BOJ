@@ -1,4 +1,61 @@
 #include <cstdio>
+#include <cstring>
+#include <iostream>
+#include <algorithm>
+#include <string>
+
+using namespace std;
+
+int num[3][100001] = { 0, };
+
+int dp[3][100001] = { 0, };
+// dp[0~2][n] -> 1 : ìœ„ ì„ íƒ, 2 : ì•„ëž˜ ì„ íƒ, 0 : ì„ íƒ X
+// dp[i][j] -> i ìƒíƒœì— ë”°ë¥¸ ìµœëŒ€ ì ìˆ˜(iëŠ” 3ê°€ì§€ ê²½ìš°ì˜ ìˆ˜), jëŠ” i í–‰ì— ë”°ë¥¸ ì„ íƒí•œ ì—´
+
+int main(void)
+{
+	int T = 0; // test case
+	int n = 0;
+
+	scanf("%d", &T);
+
+	while (T > 0)
+	{
+		scanf("%d", &n);
+
+		for (int i = 1; i <= 2; i++)
+		{
+			for (int j = 1; j <= n; j++)
+			{
+				scanf("%d", &num[i][j]);
+			}
+		}
+
+		for (int i = 1; i <= n; i++)
+		{
+			dp[0][i] = max(dp[0][i-1], max(dp[1][i-1], dp[2][i-1]));
+			dp[1][i] = max(dp[0][i-1], dp[2][i-1]) + num[1][i];
+			dp[2][i] = max(dp[0][i-1], dp[1][i-1]) + num[2][i];
+		}
+
+		printf("%d\n", max(max(dp[0][n], dp[1][n]), dp[2][n]));
+
+		memset(num, 0, sizeof(num));
+		memset(dp, 0, sizeof(dp));
+
+		n = 0;
+
+		--T;
+	}
+
+	return 0;
+}
+
+
+
+
+/*
+#include <cstdio>
 #include <iostream>
 #include <cstring>
 #include <algorithm>
@@ -32,9 +89,9 @@ int main(void)
 
 		for (int i = 1; i <= n; i++)
 		{
-			dp[i][0] = max(dp[i - 1][0], max(dp[i - 1][1], dp[i - 1][2])); // ¾È ¶âÀ½
-			dp[i][1] = max(dp[i - 1][0], dp[i - 1][2]) + score[1][i]; // À§ ¶âÀ½
-			dp[i][2] = max(dp[i - 1][0], dp[i - 1][1]) + score[2][i];// ¾Æ·¡ ¶âÀ½
+			dp[i][0] = max(dp[i - 1][0], max(dp[i - 1][1], dp[i - 1][2]));
+			dp[i][1] = max(dp[i - 1][0], dp[i - 1][2]) + score[1][i];
+			dp[i][2] = max(dp[i - 1][0], dp[i - 1][1]) + score[2][i];
 		}
 	
 		for (int i = 1; i <= n; i++)
@@ -51,3 +108,5 @@ int main(void)
 
 	return 0;
 }
+
+*/
