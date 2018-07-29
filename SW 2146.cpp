@@ -8,8 +8,8 @@
 
 using namespace std;
 
-int bridge = 987654321; // ÃÖ¼Ò ±æÀÌÀÇ ´Ù¸®
-int N = 0; // ¼¶ÀÇ °¡·Î, ¼¼·Î Å©±â
+int bridge = 987654321; // ìµœì†Œ ê¸¸ì´ì˜ ë‹¤ë¦¬
+int N = 0; // ì„¬ì˜ ê°€ë¡œ, ì„¸ë¡œ í¬ê¸°
 
 int visit[101][101] = { 0, };
 int nation[101][101] = { 0, };
@@ -17,10 +17,10 @@ int nation[101][101] = { 0, };
 int dx[4] = { -1, 0, 1, 0 };
 int dy[4] = { 0, -1, 0, 1 };
 
-void DFS(int y, int x, int G_number) // ¼¶ ±×·ì ¹øÈ£ ºÎ¿©
+void DFS(int y, int x, int G_number) // ì„¬ ê·¸ë£¹ ë²ˆí˜¸ ë¶€ì—¬
 {
-	visit[y][x] = 1; // ¹æ¹® Ç¥½Ã
-	nation[y][x] = G_number; // ±×·ì ¹øÈ£ ºÎ¿©
+	visit[y][x] = 1; // ë°©ë¬¸ í‘œì‹œ
+	nation[y][x] = G_number; // ê·¸ë£¹ ë²ˆí˜¸ ë¶€ì—¬
 
 	for (int i = 0; i < 4; i++)
 	{
@@ -33,7 +33,7 @@ void DFS(int y, int x, int G_number) // ¼¶ ±×·ì ¹øÈ£ ºÎ¿©
 	}
 }
 
-int BFS(int gn) // ¼¶ È®Àå
+int BFS(int gn) // ì„¬ í™•ì¥
 {
 	queue<pair<int, int> > q;
 
@@ -44,7 +44,7 @@ int BFS(int gn) // ¼¶ È®Àå
 			if (nation[i][j] == gn)
 			{
 				visit[i][j] = 1;
-				q.push(make_pair(i, j)); // (¼¼·Î, °¡·Î)
+				q.push(make_pair(i, j)); // (ì„¸ë¡œ, ê°€ë¡œ)
 			}
 		}
 	}
@@ -74,7 +74,7 @@ int BFS(int gn) // ¼¶ È®Àå
 					return length;
 				}
 
-				if (nation[Y][X] == 0 && visit[Y][X] == 0) // ¹Ù´Ùµµ q¿¡ push
+				if (nation[Y][X] == 0 && visit[Y][X] == 0) // ë°”ë‹¤ë„ qì— push
 				{
 					visit[Y][X] = 1;
 
@@ -93,9 +93,9 @@ int main(void)
 
 	scanf("%d", &N); // N*N
 
-	for (int i = 1; i <= N; i++) // ¼¼·Î
+	for (int i = 1; i <= N; i++) // ì„¸ë¡œ
 	{
-		for (int j = 1; j <= N; j++) // °¡·Î
+		for (int j = 1; j <= N; j++) // ê°€ë¡œ
 		{
 			scanf("%d", &nation[i][j]);
 		}
@@ -107,7 +107,7 @@ int main(void)
 		{
 			if (nation[i][j] != 0 && visit[i][j] == 0)
 			{
-				DFS(i, j, groupNumber++); // ¼¼·Î(y), °¡·Î(x), ¼¶ ±×·ì ¹øÈ£ ¼ø¼­·Î DFS ÇÔ¼ö¿¡ Àü´Ş
+				DFS(i, j, groupNumber++); // ì„¸ë¡œ(y), ê°€ë¡œ(x), ì„¬ ê·¸ë£¹ ë²ˆí˜¸ ìˆœì„œë¡œ DFS í•¨ìˆ˜ì— ì „ë‹¬
 			}
 		}
 	}
