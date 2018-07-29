@@ -27,9 +27,9 @@ void beforeBFS(int m)
 	{
 		for (int j = 1; j <= N; j++)
 		{
-			if (region[i][j] <= m) // ÀÌÇÏ
+			if (region[i][j] <= m) // ì´í•˜
 			{
-				region[i][j] = 0; // ¹°¿¡ Àá±è = 0
+				region[i][j] = 0; // ë¬¼ì— ìž ê¹€ = 0
 			}
 		}
 	}
@@ -37,7 +37,7 @@ void beforeBFS(int m)
 
 void DFS(int start, int end)
 {
-	visit[start][end] = 1; // ¹æ¹® Ã³¸®
+	visit[start][end] = 1; // ë°©ë¬¸ ì²˜ë¦¬
 
 	for (int i = 0; i < 4; i++)
 	{
@@ -56,9 +56,9 @@ int main(void)
 
 	scanf("%d\n", &N);
 
-	for (int i = 1; i <= N; i++) // ¼¼·Î
+	for (int i = 1; i <= N; i++) // ì„¸ë¡œ
 	{
-		for (int j = 1; j <= N; j++) // °¡·Î
+		for (int j = 1; j <= N; j++) // ê°€ë¡œ
 		{
 			scanf("%d", &region[i][j]);
 
