@@ -1,130 +1,29 @@
-/*
-¹éÁØ 13460¹ø ±¸½½ Å»Ãâ 2
-
-[¹®Á¦]
-½ºÅ¸Æ®¸µÅ©¿¡¼­ ÆÇ¸ÅÇÏ´Â ¾î¸°ÀÌ¿ë Àå³²°¨ Áß¿¡¼­ °¡Àå ÀÎ±â°¡ ¸¹Àº Á¦Ç°Àº ±¸½½ Å»ÃâÀÌ´Ù.
-±¸½½ Å»ÃâÀº Á÷»ç°¢Çü º¸µå¿¡ »¡°£ ±¸½½°ú ÆÄ¶õ ±¸½½À» ÇÏ³ª¾¿ ³ÖÀº ´ÙÀ½, »¡°£ ±¸½½À» ±¸¸ÛÀ» ÅëÇØ »©³»´Â °ÔÀÓÀÌ´Ù.
-
-º¸µåÀÇ ¼¼·Î Å©±â´Â N, °¡·Î Å©±â´Â MÀÌ°í, ÆíÀÇ»ó 1¡¿1Å©±âÀÇ Ä­À¸·Î ³ª´©¾îÁ® ÀÖ´Ù.
-°¡Àå ¹Ù±ù Çà°ú ¿­Àº ¸ğµÎ ¸·ÇôÁ® ÀÖ°í, º¸µå¿¡´Â ±¸¸ÛÀÌ ÇÏ³ª ÀÖ´Ù.
-»¡°£ ±¸½½°ú ÆÄ¶õ ±¸½½ÀÇ Å©±â´Â º¸µå¿¡¼­ 1¡¿1Å©±âÀÇ Ä­À» °¡µæ Ã¤¿ì´Â »çÀÌÁîÀÌ°í, °¢°¢ ÇÏ³ª¾¿ µé¾î°¡ ÀÖ´Ù. °ÔÀÓÀÇ ¸ñÇ¥´Â »¡°£ ±¸½½À» ±¸¸ÛÀ» ÅëÇØ¼­ »©³»´Â °ÍÀÌ´Ù. ÀÌ ¶§, ÆÄ¶õ ±¸½½ÀÌ ±¸¸Û¿¡ µé¾î°¡¸é ¾ÈµÈ´Ù.
-
-ÀÌ ¶§, ±¸½½À» ¼ÕÀ¸·Î °Çµå¸± ¼ö´Â ¾ø°í, Áß·ÂÀ» ÀÌ¿ëÇØ¼­ ÀÌ¸® Àú¸® ±¼·Á¾ß ÇÑ´Ù.
-¿ŞÂÊÀ¸·Î ±â¿ïÀÌ±â, ¿À¸¥ÂÊÀ¸·Î ±â¿ïÀÌ±â, À§ÂÊÀ¸·Î ±â¿ïÀÌ±â, ¾Æ·¡ÂÊÀ¸·Î ±â¿ïÀÌ±â¿Í °°Àº ³× °¡Áö µ¿ÀÛÀÌ °¡´ÉÇÏ´Ù.
-
-°¢°¢ÀÇ µ¿ÀÛ¿¡¼­ °øÀº µ¿½Ã¿¡ ¿òÁ÷ÀÎ´Ù. »¡°£ ±¸½½ÀÌ ±¸¸Û¿¡ ºüÁö¸é ¼º°øÀÌÁö¸¸, ÆÄ¶õ ±¸½½ÀÌ ±¸¸Û¿¡ ºüÁö¸é ½ÇÆĞÀÌ´Ù.
-»¡°£ ±¸½½°ú ÆÄ¶õ ±¸½½ÀÌ µ¿½Ã¿¡ ±¸¸Û¿¡ ºüÁ®µµ ½ÇÆĞÀÌ´Ù. »¡°£ ±¸½½°ú ÆÄ¶õ ±¸½½Àº µ¿½Ã¿¡ °°Àº Ä­¿¡ ÀÖÀ» ¼ö ¾ø´Ù.
-
-¶Ç, »¡°£ ±¸½½°ú ÆÄ¶õ ±¸½½ÀÇ Å©±â´Â ÇÑ Ä­À» ¸ğµÎ Â÷ÁöÇÑ´Ù. ±â¿ïÀÌ´Â µ¿ÀÛÀ» ±×¸¸ÇÏ´Â °ÍÀº ´õ ÀÌ»ó ±¸½½ÀÌ ¿òÁ÷ÀÌÁö ¾ÊÀ» ¶§ ±îÁöÀÌ´Ù.
-
-º¸µåÀÇ »óÅÂ°¡ ÁÖ¾îÁ³À» ¶§, ÃÖ¼Ò ¸î ¹ø ¸¸¿¡ »¡°£ ±¸½½À» ±¸¸ÛÀ» ÅëÇØ »©³¾ ¼ö ÀÖ´ÂÁö ±¸ÇÏ´Â ÇÁ·Î±×·¥À» ÀÛ¼ºÇÏ½Ã¿À.
-
-[ÀÔ·Â 1]
-5 5
-#####
-#..B#
-#.#.#
-#RO.#
-#####
-[Ãâ·Â 1]
-1
-
-[ÀÔ·Â 2]
-7 7
-#######
-#...RB#
-#.#####
-#.....#
-#####.#
-#O....#
-#######
-[Ãâ·Â 2]
-5
-
-[ÀÔ·Â 3]
-7 7
-#######
-#..R#B#
-#.#####
-#.....#
-#####.#
-#O....#
-#######
-[Ãâ·Â 3]
-5
-
-[ÀÔ·Â 4]
-10 10
-##########
-#R#...##B#
-#...#.##.#
-#####.##.#6
-#......#.#
-#.######.#
-#.#....#.#
-#.#.#.#..#
-#...#.O#.#
-##########
-[Ãâ·Â 4]
--1
-
-[ÀÔ·Â 5]
-3 7
-#######
-#R.O.B#
-#######
-[Ãâ·Â 5]
-1
-
-[ÀÔ·Â 6]
-10 10
-##########
-#R#...##B#
-#...#.##.#
-#####.##.#
-#......#.#
-#.######.#
-#.#....#.#
-#.#.##...#
-#O..#....#
-##########
-[Ãâ·Â 6]
-7
-
-[ÀÔ·Â 7]
-3 10
-##########
-#.O....RB#
-##########
-[Ãâ·Â 7]
--1
-*/
+// ë„ì›€ ë§ì´ ëœ ì‚¬ì´íŠ¸ : http://jason9319.tistory.com/217
 
 #include <cstdio>
-#include <cstring>
-#include <iostream>
 #include <algorithm>
-#include <string>
-#include <cstdlib>
 #include <queue>
 
 using namespace std;
 
-int N = 0; // ¼¼·Î = y = N
-int M = 0; // °¡·Î = x = M
+int N = 0; // ì„¸ë¡œ = y = N
+int M = 0; // ê°€ë¡œ = x = M
 
-int visit[11][11][11][11] = { 0, };
+int visit[11][11][11][11];
 
 int dy[4] = { -1, 0, 1, 0 };
 int dx[4] = { 0, -1, 0, 1 };
+
 int ry, rx, by, bx;
 
 char map[11][11];
 
-int BFS() // ÃÖ¼Ò È½¼ö¸¦ ±¸ÇÏ´Â ¹®Á¦ÀÌ±â ¶§¹®¿¡, BFS°¡ ´õ ÆíÇÏ´Ù. ³ªÁß¿¡ DFS·Î Ç®¾îºÁ¾ß°Ú´Ù.
+queue<pair<pair<int, int>, pair<int, int> > > q;
+
+int BFS()
 {
-	queue<pair<pair<int, int>, pair<int, int> > > q;
-	q.push({ {ry, rx},{by, bx} });
+	q.push(make_pair(make_pair(ry, rx), make_pair(by, bx)));
+
 	visit[ry][rx][by][bx] = 1;
 
 	int Cnt = 0;
@@ -135,60 +34,67 @@ int BFS() // ÃÖ¼Ò È½¼ö¸¦ ±¸ÇÏ´Â ¹®Á¦ÀÌ±â ¶§¹®¿¡, BFS°¡ ´õ ÆíÇÏ´Ù. ³ªÁß¿¡ DFS·Î Ç
 
 		for (int i = 0; i < qSize; i++)
 		{
-			int R_y = q.front().first.first; // Red ±¸½½ y
-			int R_x = q.front().first.second; // Red ±¸½½ x 
-			int B_y = q.front().second.first; // Blue ±¸½½ y
-			int B_x = q.front().second.second; // Blue ±¸½½ x
+			int Ry = q.front().first.first;
+			int Rx = q.front().first.second;
+
+			int By = q.front().second.first;
+			int Bx = q.front().second.second;
 
 			q.pop();
 
-			if ( (map[R_y][R_x] == 'O') && (map[R_y][R_x] != map[B_y][B_x]) ) return Cnt;
-
-			for (int a = 0; a < 4; a++)
+			if (map[Ry][Rx] == 'O' && map[Ry][Rx] != map[By][Bx])
 			{
-				int RY = R_y;
-				int RX = R_x;
+				return Cnt;
+			}
+			
+			for (int j = 0; j < 4; j++)
+			{
+				int RedY = Ry;
+				int RedX = Rx;
+				int BlueY = By;
+				int BlueX = Bx;
 
-				int BY = B_y;
-				int BX = B_x;
+				//if (RedY + dy[j] <= 0 || RedY + dy[j] > N || RedX + dx[j] <= 0 || RedX + dx[j] > M) continue;
 
-				while ( (map[RY + dy[a]][RX + dx[a]] != '#') && (map[RY][RX] != 'O') )
+				//if (BlueY + dy[j] <= 0 || BlueY + dy[j] > N || BlueX + dx[j] <= 0 || BlueX + dx[j] > M) continue;
+
+				while (map[RedY + dy[j]][RedX + dx[j]] != '#' && map[RedY][RedX] != 'O')
 				{
-					RY += dy[a];
-					RX += dx[a];
+					RedY += dy[j];
+					RedX += dx[j];
 				}
 
-				while ( (map[BY + dy[a]][BX + dx[a]] != '#') && (map[BY][BX] != 'O') )
+				while (map[BlueY + dy[j]][BlueX + dx[j]] != '#' && map[BlueY][BlueX] != 'O')
 				{
-					BY += dy[a];
-					BX += dx[a];
+					BlueY += dy[j];
+					BlueX += dx[j];
 				}
 
-				if (RY == BY && RX == BX)
+				if (RedY == BlueY && RedX == BlueX)
 				{
-					if (map[RY][RX] == 'O') continue;
+					if (map[RedY][RedX] == 'O') continue;
 
-					if (abs(RY - R_y) + abs(RX - R_x) < abs(BY - B_y) + abs(BX - B_y))
+					if (abs(RedY - Ry) + abs(RedX - Rx) < abs(BlueY - By) + abs(BlueX - Bx))
 					{
-						BY -= dy[a];
-						BX -= dx[a];
+						BlueY -= dy[j];
+						BlueX -= dx[j];
 					}
 					else
 					{
-						RY -= dy[a];
-						RX -= dx[a];
+						RedY -= dy[j];
+						RedX -= dx[j];
 					}
 				}
 
-				if (visit[RY][RX][BY][BX] == 1) continue;
+				if (visit[RedY][RedX][BlueY][BlueX] == 1) continue;
+				
+				q.push(make_pair(make_pair(RedY, RedX), make_pair(BlueY, BlueX)));
 
-				q.push({ { RY, RX },{ BY,BX } });
-
-				visit[RY][RX][BY][BX] = 1;
+				visit[RedY][RedX][BlueY][BlueX] = 1;
 			}
 		}
 
-		if (Cnt == 10) return -1;
+		if (Cnt >= 10) return -1;
 
 		++Cnt;
 	}
@@ -198,25 +104,23 @@ int BFS() // ÃÖ¼Ò È½¼ö¸¦ ±¸ÇÏ´Â ¹®Á¦ÀÌ±â ¶§¹®¿¡, BFS°¡ ´õ ÆíÇÏ´Ù. ³ªÁß¿¡ DFS·Î Ç
 
 int main(void)
 {
-	scanf("%d %d", &N, &M);
+	scanf("%d %d", &N, &M); // ì„¸ë¡œ N, ê°€ë¡œ M
 
-	for (int i = 1; i <= N; i++) // ¼¼·Î = y = N
+	for (int i = 1; i <= N; i++) // ì„¸ë¡œ y
 	{
-		getchar();
-
-		for (int j = 1; j <= M; j++) // °¡·Î = x = M
+		for (int j = 1; j <= M; j++) // ê°€ë¡œ x
 		{
 			scanf("%c", &map[i][j]);
 
 			if (map[i][j] == 'R')
 			{
-				ry = i; // ¼¼·Î
-				rx = j; // °¡·Î
+				ry = i;
+				rx = j;
 			}
 			else if (map[i][j] == 'B')
 			{
-				by = i; // ¼¼·Î
-				bx = j; // °¡·Î
+				by = i;
+				bx = j;
 			}
 		}
 	}
