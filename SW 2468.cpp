@@ -3,67 +3,64 @@
 #include <iostream>
 #include <algorithm>
 #include <string>
-#include <queue>
 #include <vector>
 
 using namespace std;
 
+int map[101][101] = { 0, };
+
 int visit[101][101] = { 0, };
-int region[101][101] = { 0, };
+
+int N = 0;
 
 int dy[4] = { -1, 0, 1, 0 };
 int dx[4] = { 0, -1, 0, 1 };
 
-int N = 0;
+int Connected_Component = 0;
 
-int MIN = 987654321;
-int MAX = -987654321;
-int safe_Cnt = -987654321;
-int Connected_Component = 1;
-
-void beforeBFS(int m)
+void full(int water)
 {
 	for (int i = 1; i <= N; i++)
 	{
 		for (int j = 1; j <= N; j++)
 		{
-			if (region[i][j] <= m) // 이하
+			if (map[i][j] <= water)
 			{
-				region[i][j] = 0; // 물에 잠김 = 0
+				map[i][j] = 0; // be full of water(=0)
 			}
 		}
 	}
 }
 
-void DFS(int start, int end)
+void DFS(int y, int x)
 {
-	visit[start][end] = 1; // 방문 처리
+	visit[y][x] = 1;
 
 	for (int i = 0; i < 4; i++)
 	{
-		int y = start + dy[i];
-		int x = end + dx[i];
+		int Y = y + dy[i];
+		int X = x + dx[i];
 
-		if (y <= 0 || x <= 0 || y > N || x > N || region[y][x] == 0 || visit[y][x] == 1) continue;
+		if (Y <= 0 || Y > N || X <= 0 || X > N || map[Y][X] == 0 || visit[Y][X] == 1) continue;
 
-		DFS(y, x);
+		DFS(Y, X);
 	}
 }
 
 int main(void)
 {
-	int a = 0, b = 0;
+	int MIN = 987654321, MAX = -987654321, ans = -987654321;
 
-	scanf("%d\n", &N);
+	scanf("%d", &N);
 
-	for (int i = 1; i <= N; i++) // 세로
+	for (int i = 1; i <= N; i++)
 	{
-		for (int j = 1; j <= N; j++) // 가로
+		for (int j = 1; j <= N; j++)
 		{
-			scanf("%d", &region[i][j]);
+			scanf("%d", &map[i][j]);
 
-			MIN = min(MIN, region[i][j]);
-			MAX = max(MAX, region[i][j]);
+			MIN = min(MIN, map[i][j]);
+			MAX = max(MAX, map[i][j]);
 		}
 	}
 
@@ -80,13 +77,13 @@ int main(void)
 
 		memset(visit, 0, sizeof(visit));
 
-		beforeBFS(i);
+		full(i);
 
-		for (a = 1; a <= N; a++)
+		for (int a = 1; a <= N; a++)
 		{
-			for (b = 1; b <= N; b++)
+			for (int b = 1; b <= N; b++)
 			{
-				if (region[a][b] != 0 && visit[a][b] == 0)
+				if (map[a][b] != 0 && visit[a][b] == 0)
 				{
 					++Connected_Component;
 
@@ -95,10 +92,10 @@ int main(void)
 			}
 		}
 
-		safe_Cnt = max(safe_Cnt, Connected_Component);
+		ans = max(ans, Connected_Component);
 	}
-
-	printf("%d\n", safe_Cnt);
+	
+	printf("%d\n", ans);
 
 	return 0;
 }
