@@ -1,3 +1,5 @@
+// index를 1 <= <= N이 아닌, 0 <= < N 으로 한 이유는 vector를 복사할 때, 새롭게 대입 당한 vector에는 index가 0~N-1로 대입된다. Code 119
+
 // https://www.acmicpc.net/problem/12100
 
 /*
