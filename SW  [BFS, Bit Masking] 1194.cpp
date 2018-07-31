@@ -10,8 +10,8 @@
 
 using namespace std;
 
-int N = 0; // ¼¼·Î Å©±â = y
-int M = 0; // °¡·Î Å©±â = x
+int N = 0;
+int M = 0;
 int py = 0, px = 0;
 int visit[51][51][1 << 7] = { 0, };
 int dy[4] = { -1, 0, 1, 0 };
