@@ -20,14 +20,14 @@ int visit[101][101] = { 0, };
 
 int map[101][101] = { 0, };
 
-int N = 0; // º¸µåÀÇ Å©±â(°¡·Î = ¼¼·Î)
-int K = 0; // »ç°úÀÇ °³¼ö
-int L = 0; // ¹ìÀÇ ¹æÇâ º¯È¯ È½¼ö
-int Sy = 1, Sx = 1; // ¹ì ÃÊ±â À§Ä¡
-int direction = RIGHT; // ÃÊ±â ÀÌµ¿ ¹æÇâ
-int sec = 0; // ÃÊ
+int N = 0; // ë³´ë“œì˜ í¬ê¸°(ê°€ë¡œ = ì„¸ë¡œ)
+int K = 0; // ì‚¬ê³¼ì˜ ê°œìˆ˜
+int L = 0; // ë±€ì˜ ë°©í–¥ ë³€í™˜ íšŸìˆ˜
+int Sy = 1, Sx = 1; // ë±€ ì´ˆê¸° ìœ„ì¹˜
+int direction = RIGHT; // ì´ˆê¸° ì´ë™ ë°©í–¥
+int sec = 0; // ì´ˆ
 
-deque<pair<int, int> > dq; // ¹ì ¸Ó¸®, ²¿¸®
+deque<pair<int, int> > dq; // ë±€ ë¨¸ë¦¬, ê¼¬ë¦¬
 
 void move()
 {
@@ -57,8 +57,8 @@ int main(void)
 	int X = 0;
 	char C;
 
-	scanf("%d", &N); // º¸µåÀÇ Å©±â
-	scanf("%d", &K); // »ç°úÀÇ °³¼ö
+	scanf("%d", &N); // ë³´ë“œì˜ í¬ê¸°
+	scanf("%d", &K); // ì‚¬ê³¼ì˜ ê°œìˆ˜
 
 	memset(map, LAND, sizeof(map));
 
@@ -73,7 +73,7 @@ int main(void)
 		map[ai][aj] = APPLE;
 	}
 
-	scanf("%d", &L); // ¹ìÀÇ ¹æÇâ º¯È¯ È½¼ö
+	scanf("%d", &L); // ë±€ì˜ ë°©í–¥ ë³€í™˜ íšŸìˆ˜
 
 	int timeMinus = 0;
 
@@ -85,7 +85,7 @@ int main(void)
 
 		char cur_Pos = C;
 
-		X -= timeMinus; // ÀÔ·ÂÇÑ X¿¡ µû¶ó¼­ ½Ã°£ Â÷ÀÌ. ¿¹) Ã³À½ ÀÔ·Â 2, ³ªÁß ÀÔ·Â 4 -> 2ÃÊ
+		X -= timeMinus; // ì…ë ¥í•œ Xì— ë”°ë¼ì„œ ì‹œê°„ ì°¨ì´. ì˜ˆ) ì²˜ìŒ ì…ë ¥ 2, ë‚˜ì¤‘ ì…ë ¥ 4 -> 2ì´ˆ
 
 		while (X--)
 		{
