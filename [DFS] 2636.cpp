@@ -1,5 +1,3 @@
-// https://www.acmicpc.net/problem/15683
-
 #include <cstdio>
 #include <cstring>
 #include <iostream>
@@ -81,11 +79,11 @@ int main()
 
 		DFS(0, 0);
 
-		cnt_tmp = Check();
+		cnt_tmp = Check(); // 숫자 2를 세는 것이  좋다.
 
 		if (cnt_tmp == 0) break;
 
-		++hour;
+		++hour; // 위치 잘 선정해야함.
 
 		cnt = cnt_tmp;
 	}
@@ -95,3 +93,10 @@ int main()
 
 	return 0;
 }
+
+/*
+3 3
+0 0 0
+0 1 0
+0 0 0
+*/
