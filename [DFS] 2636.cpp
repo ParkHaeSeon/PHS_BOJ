@@ -54,6 +54,15 @@ void DFS(int row, int column)
 		}
 
 		if (map[y][x] == 1) map[y][x] = 2;
+		
+		
+		/*
+		if (y < 0 || y >= r || x < 0 || x >= c || visit[y][x] == 1) continue;
+
+		if(map[y][x] == 0) DFS(y, x);
+
+		if (map[y][x] == 1) map[y][x] = 2;
+		*/
 	}
 }
 
