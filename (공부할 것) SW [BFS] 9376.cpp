@@ -79,7 +79,7 @@ int main(void)
 				}
 			}
 		}
-;
+
 		for (int i = 0; i <= h + 1; i++)
 		{
 			for (int j = 0; j <= w + 1; j++)
