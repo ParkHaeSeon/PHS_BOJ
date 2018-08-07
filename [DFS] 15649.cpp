@@ -32,7 +32,6 @@ void DFS(int cnt)
 		{
 			used[i] = true;
 			num[cnt] = i;
-			printf("i가 %d일 때, num[%d] = %d, DFS(%d) 실행 예정\n", i, cnt, i, cnt+1);
 			DFS(cnt + 1);
 			used[i] = false;
 		}
