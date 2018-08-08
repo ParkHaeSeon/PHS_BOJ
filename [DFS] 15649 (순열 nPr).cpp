@@ -4,25 +4,27 @@
 #include <vector>
 #include <cstring>
 #include <algorithm>
+#include <string>
 
 using namespace std;
 
+bool used[9] = { false, };
+
 int N = 0, M = 0;
 
-bool used[10] = { false, };
+vector<int> v;
 
-int num[10] = { 0, };
-
-void DFS(int cnt)
+void DFS()
 {
-	if (cnt == M)
+	if (v.size() == M)
 	{
-		for (int i = 0; i < cnt; i++)
+		for (auto i : v)
 		{
-			printf("%d ", num[i]);
+			printf("%d ", i);
 		}
 
 		printf("\n");
+
 		return;
 	}
 
@@ -31,9 +33,10 @@ void DFS(int cnt)
 		if (!used[i])
 		{
 			used[i] = true;
-			num[cnt] = i;
-			DFS(cnt + 1);
+			v.push_back(i);
+			DFS();
 			used[i] = false;
+			v.pop_back();
 		}
 	}
 }
@@ -42,7 +45,7 @@ int main(void)
 {
 	scanf("%d %d", &N, &M);
 
-	DFS(0);
+	DFS();
 
 	return 0;
 }
