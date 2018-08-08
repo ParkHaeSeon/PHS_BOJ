@@ -144,121 +144,121 @@ vector<pair<int, int> > virus;
 
 int BFS(int temp[][9])
 {
-int Safe = 0;
+	int Safe = 0;
 
-queue<pair<int, int> > q;
+	queue<pair<int, int> > q;
 
-int visit[9][9] = { 0, };
+	int visit[9][9] = { 0, };
 
-int arr[9][9] = { 0, };
+	int arr[9][9] = { 0, };
 
-for (int i = 0; i < N; i++)
-{
-for (int j = 0; j < M; j++)
-{
-arr[i][j] = temp[i][j];
-}
-}
+	for (int i = 0; i < N; i++)
+	{
+		for (int j = 0; j < M; j++)
+		{
+			arr[i][j] = temp[i][j];
+		}
+	}
 
-for (int i = 0; i < virus.size(); i++)
-{
-q.push(virus[i]);
-}
+	for (int i = 0; i < virus.size(); i++)
+	{
+		q.push(virus[i]);
+	}
 
-while (!q.empty())
-{
-int qSize = q.size();
+	while (!q.empty())
+	{
+		int qSize = q.size();
 
-while (qSize--)
-{
-int y = q.front().first;
-int x = q.front().second;
+		while (qSize--)
+		{
+			int y = q.front().first;
+			int x = q.front().second;
 
-q.pop();
+			q.pop();
 
-if (visit[y][x] == 1) continue;
+			if (visit[y][x] == 1) continue;
 
-visit[y][x] = 1;
+			visit[y][x] = 1;
 
-arr[y][x] = 2;
+			arr[y][x] = 2;
 
-for (int i = 0; i < 4; i++)
-{
-int ny = y + dy[i];
-int nx = x + dx[i];
+			for (int i = 0; i < 4; i++)
+			{
+				int ny = y + dy[i];
+				int nx = x + dx[i];
 
-if ((0 <= ny && ny < N) && (0 <= nx && nx < M) && arr[ny][nx] == 0)
-{
-q.push({ ny, nx });
-}
-}
-}
-}
+				if ((0 <= ny && ny < N) && (0 <= nx && nx < M) && arr[ny][nx] == 0)
+				{
+					q.push({ ny, nx });
+				}
+			}
+		}
+	}
 
-for (int i = 0; i < N; i++)
-{
-for (int j = 0; j < M; j++)
-{
-if (arr[i][j] == 0)
-{
-++Safe;
-}
-}
-}
-
-return Safe;
+	for (int i = 0; i < N; i++)
+	{
+		for (int j = 0; j < M; j++)
+		{
+			if (arr[i][j] == 0)
+			{
+				++Safe;
+			}
+		}
+	}
+	
+	return Safe;
 }
 
 int main(void)
 {
-int arr[9][9] = { 0, };
+	int arr[9][9] = { 0, };
 
-int index = 0, result = 0;
+	int index = 0, result = 0;
 
-scanf("%d %d", &N, &M);
+	scanf("%d %d", &N, &M);
 
-for (int i = 0; i < N; i++)
-{
-for (int j = 0; j < M; j++)
-{
-scanf("%d", &arr[i][j]);
+	for (int i = 0; i < N; i++)
+	{
+		for (int j = 0; j < M; j++)
+		{
+			scanf("%d", &arr[i][j]);
 
-map[index++] = { i,j };
+			map[index++] = { i,j };
 
-if (arr[i][j] == 2)
-{
-virus.push_back({ i,j });
-}
-}
-}
+			if (arr[i][j] == 2)
+			{
+				virus.push_back({ i,j });
+			}
+		}
+	}
 
-for (int point_1 = 0; point_1 < index - 2; point_1++)
-{
-for (int point_2 = point_1 + 1; point_2 < index - 1; point_2++)
-{
-for (int point_3 = point_2 + 1; point_3 < index; point_3++)
-{
+	for (int point_1 = 0; point_1 < index - 2; point_1++)
+	{
+		for (int point_2 = point_1 + 1; point_2 < index - 1; point_2++)
+		{
+			for (int point_3 = point_2 + 1; point_3 < index; point_3++)
+			{
+				
+				int y1 = map[point_1].first; int x1 = map[point_1].second;
+				int y2 = map[point_2].first; int x2 = map[point_2].second;
+				int y3 = map[point_3].first; int x3 = map[point_3].second;
 
-int y1 = map[point_1].first; int x1 = map[point_1].second;
-int y2 = map[point_2].first; int x2 = map[point_2].second;
-int y3 = map[point_3].first; int x3 = map[point_3].second;
+				if (arr[y1][x1] == 0 && arr[y2][x2] == 0 && arr[y3][x3] == 0)
+				{
+					arr[y1][x1] = arr[y2][x2] = arr[y3][x3] = 1;
 
-if (arr[y1][x1] == 0 && arr[y2][x2] == 0 && arr[y3][x3] == 0)
-{
-arr[y1][x1] = arr[y2][x2] = arr[y3][x3] = 1;
+					int ret = BFS(arr);
 
-int ret = BFS(arr);
+					result = max(result, ret);
 
-result = max(result, ret);
+					arr[y1][x1] = arr[y2][x2] = arr[y3][x3] = 0;
+				}
+			}
+		}
+	}
 
-arr[y1][x1] = arr[y2][x2] = arr[y3][x3] = 0;
-}
-}
-}
-}
+	printf("%d\n", result);
 
-printf("%d\n", result);
-
-return 0;
+	return 0;
 }
 */
