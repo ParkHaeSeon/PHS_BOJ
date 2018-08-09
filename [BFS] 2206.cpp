@@ -17,8 +17,6 @@ bool visit[1001][1001][2] = { false, };
 
 int N = 0, M = 0;
 
-bool wall = false;
-
 queue<pair<pair<int, int>, int> > q;
 
 int BFS()
