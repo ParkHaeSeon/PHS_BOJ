@@ -1,27 +1,48 @@
-#include <cstdio>
-#include <cstring>
 #include <iostream>
-#include <algorithm>
-#include <vector>
 #include <queue>
+#include <cstdio>
+#include <vector>
+#include <cstring>
+#include <algorithm>
+#include <string>
 
 using namespace std;
 
-int map[101][101] = { 0, };
-int visit[101][101] = { -1, };
+int r = 0, c = 0;
 
-int r = 0;
-int c = 0;
-
-int hour = 0;
-int cnt = 0;
+int map[101][101]{ 0, };
 
 int dy[4] = { -1, 0, 1, 0 };
 int dx[4] = { 0, -1, 0, 1 };
 
-int Check()
+bool visit[101][101] = { false, };
+
+void DFS(int y, int x)
 {
-	int ret = 0;
+	visit[y][x] = true;
+
+	for (int i = 0; i < 4; i++)
+	{
+		int Y = y + dy[i];
+		int X = x + dx[i];
+
+		if (Y < 0 || Y >= r || X < 0 || X >= c || visit[Y][X]) continue;
+
+		if (map[Y][X] == 0)
+		{
+			DFS(Y, X);
+		}
+
+		if (map[Y][X] == 1)
+		{
+			map[Y][X] = 2;
+		}	
+	}
+}
+
+int chageCheese()
+{
+	int cnt = 0;
 
 	for (int i = 0; i < r; i++)
 	{
@@ -29,49 +50,18 @@ int Check()
 		{
 			if (map[i][j] == 2)
 			{
-				++ret;
+				++cnt;
 
 				map[i][j] = 0;
 			}
 		}
 	}
 
-	return ret;
+	return cnt;
 }
 
-void DFS(int row, int column)
+int main(void)
 {
-	visit[row][column] = 1;
-
-	for (int i = 0; i < 4; i++)
-	{
-		int y = row + dy[i];
-		int x = column + dx[i];
-
-		if (y >= 0 && y < r && x >= 0 && x < c && map[y][x] == 0 && visit[y][x] == -1)
-		{
-			DFS(y, x);
-		}
-
-		if (map[y][x] == 1) map[y][x] = 2;
-		
-		
-		/*
-		if (y < 0 || y >= r || x < 0 || x >= c || visit[y][x] == 1) continue;
-
-		if(map[y][x] == 0) DFS(y, x);
-
-		if (map[y][x] == 1) map[y][x] = 2;
-		*/
-	}
-}
-
-int main()
-{
-	int cnt_tmp = 0;
-
-	memset(map, 0, sizeof(map));
-
 	scanf("%d %d", &r, &c);
 
 	for (int i = 0; i < r; i++)
@@ -82,30 +72,25 @@ int main()
 		}
 	}
 
+	int time = 0;
+	int save_num = 0;
+
 	while (1)
 	{
-		memset(visit, -1, sizeof(visit));
+		memset(visit, false, sizeof(visit));
 
 		DFS(0, 0);
 
-		cnt_tmp = Check(); // 숫자 2를 세는 것이  좋다.
+		int num = chageCheese();
 
-		if (cnt_tmp == 0) break;
+		if (num == 0) break;
 
-		++hour; // 위치 잘 선정해야함.
+		save_num = num;
 
-		cnt = cnt_tmp;
+		++time;
 	}
 
-	printf("%d\n", hour);
-	printf("%d\n", cnt);
+	printf("%d\n%d\n", time, save_num);
 
 	return 0;
 }
-
-/*
-3 3
-0 0 0
-0 1 0
-0 0 0
-*/
