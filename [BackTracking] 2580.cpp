@@ -3,73 +3,75 @@
 #include <cstdio>
 #include <vector>
 #include <cstring>
-#include <algorithm>
-#include <string>
 
 using namespace std;
 
-int sudoku[10][10] = { 0, }; // input
+int map[10][10] = { 0, };
 
-bool width[10][10] = { false, }; // same row line 1 ~ 9 exist bool
+bool row[10][10] = { false, };
+bool column[10][10] = { false, };
+bool square[10][10] = { false, };
 
-bool height[10][10] = { false, }; // same column line  1 ~ 9 exist bool
+bool stop = false;
 
-bool square[10][10] = { false, }; // same square place  1 ~ 9 exist bool
+vector<pair<int, int> > zero;
 
-bool complete = false;
-
-vector<pair<int, int> > v; // zero position (y, x) push
-
-void square_check(int r, int c, int area)
+void square_check(int y, int x, int area)
 {
-	for (int i = r; i < r + 3; i++)
+	for (int i = y; i < y + 3; i++)
 	{
-		for (int j = c; j < c + 3; j++)
+		for (int j = x; j < x + 3; j++)
 		{
-			square[area][sudoku[i][j]] = true;			
+			square[area][map[i][j]] = true;
 		}
 	}
 }
 
-void DFS_BackTracking(int Cnt)
+void print()
 {
-	if (complete) return;
-
-	if (Cnt == v.size())
+	for (int i = 0; i < 9; i++)
 	{
-		for (int i = 0; i < 9; i++)
+		for (int j = 0; j < 9; j++)
 		{
-			for (int j = 0; j < 9; j++)
-			{
-				printf("%d ", sudoku[i][j]);
-			}
-
-			printf("\n");
+			printf("%d ", map[i][j]);
 		}
 
-		complete = true;
+		printf("\n");
+	}
+}
+
+void BackTracking(int index)
+{
+	if (stop) return;
+	
+	if (index == zero.size())
+	{
+		stop = true;
+
+		print();
 
 		return;
 	}
 
-	int y = v[Cnt].first;
-	int x = v[Cnt].second;
-	int area = 3 * (y / 3) + (x / 3);
+	int y = zero[index].first;
+	int x = zero[index].second;
+	int area = 3 * (y / 3) + x / 3;
 
 	for (int i = 1; i <= 9; i++)
 	{
-		if (!width[y][i] && !height[x][i] && !square[area][i])
+		if (!row[y][i] && !column[x][i] && !square[area][i])
 		{
-			width[y][i] = true;
-			height[x][i] = true;
+			row[y][i] = true;
+			column[x][i] = true;
 			square[area][i] = true;
-			sudoku[y][x] = i;
+			map[y][x] = i;
 
-			DFS_BackTracking(Cnt + 1);
+			BackTracking(index + 1);
 
-			width[y][i] = false;
-			height[x][i] = false;
+			row[y][i] = false;
+			column[x][i] = false;
 			square[area][i] = false;
+			map[y][x] = 0;
 		}
 	}
 }
@@ -80,14 +82,14 @@ int main(void)
 	{
 		for (int j = 0; j < 9; j++)
 		{
-			scanf("%d", &sudoku[i][j]);
+			scanf("%d", &map[i][j]);
 
-			width[i][sudoku[i][j]] = true;
-			height[j][sudoku[i][j]] = true;
+			row[i][map[i][j]] = true;
+			column[j][map[i][j]] = true;
 
-			if (sudoku[i][j] == 0)
+			if (map[i][j] == 0)
 			{
-				v.push_back({ i ,j });
+				zero.push_back({ i,j });
 			}
 		}
 	}
@@ -104,7 +106,7 @@ int main(void)
 		}
 	}
 
-	DFS_BackTracking(0);
+	BackTracking(0);
 
 	return 0;
 }
