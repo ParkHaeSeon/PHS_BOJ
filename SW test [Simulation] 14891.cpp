@@ -44,28 +44,8 @@ void onlyRotate(int gear, int clock)
 	}
 }
 
-int Rotate_Check_decrease(int gear, int clock)
+int Do_Rotate(int gear, int clcok)
 {
-	//if (dq[gear][2] == dq[gear + 1][6]) return 0;
-
-	if (clock == 1)
-	{
-		onlyRotate(gear, -1);
-
-		return - 1;
-	}
-	else if (clock == -1)
-	{
-		onlyRotate(gear, 1);
-
-		return 1;
-	}
-}
-
-int Rotate_Check_increase(int gear, int clcok)
-{
-	//if (dq[gear - 1][2] == dq[gear][6]) return 0;
-
 	if (clcok == 1)
 	{
 		onlyRotate(gear, -1);
@@ -80,212 +60,107 @@ int Rotate_Check_increase(int gear, int clcok)
 	}
 }
 
+int gear_left(int gear)
+{
+	int ret = 0;
+
+	ret = dq[gear][6];
+
+	return ret;
+}
+
+int gear_right(int gear)
+{
+	int ret = 0;
+
+	ret = dq[gear][2];
+
+	return ret;
+}
+
 void Rotate_Gear(int gear, int clock)
 {
-	int left = dq[gear][6];
-	int right = dq[gear][2];
+	int left = dq[gear][6]; // 입력 받은 톱니 바퀴의 왼쪽
 
-	if (clock == 1) // clockwise
+	int right = dq[gear][2]; // 입력 받은 톱니 바퀴의 오른쪽 
+
+	if (clock == 1) // 시계 방향이라면
 	{
 		dq[gear].push_front(dq[gear].back());
 
 		dq[gear].pop_back();
-
-		if (gear == 1) // 기어가 1일 때
-		{
-			if (right == dq[gear + 1][6]) return;
-			// 1의 오른쪽과 2의 왼쪽이 같으면 리턴
-
-
-			int r = dq[gear + 1][2];
-			// 2의 오른쪽 저장
-
-
-			int var = Rotate_Check_increase(2, clock);
-			// 2 회전
-
-
-			if (r == dq[3][6]) return;
-			// 2의 오른쪽과 3의 왼쪽이 같으면 리턴
-
-			r = dq[gear + 2][2];
-			// r에 3의 오른쪽 저장
-
-			var = Rotate_Check_increase(3, var);
-
-			if (r == dq[4][6]) return;
-			// 3의 오른쪽과 4의 왼쪽이 같으면 리턴
-
-			Rotate_Check_increase(4, var);
-		}
-		else if (gear == 2)
-		{
-			if (left != dq[gear - 1][2])
-			{
-				onlyRotate(1, -clock);
-			}
-
-			if (right == dq[gear + 1][6]) return;
-			// 2의 오른쪽과 3의 왼쪽이 같으면 리턴
-
-			int r = dq[3][2];
-			// 3의 오른쪽 저장
-
-			int var = Rotate_Check_increase(3, clock);
-
-			if ( r == dq[4][6]) return;
-			// 3오 == 4왼 리턴
-
-			Rotate_Check_increase(4, var);
-		}
-		else if (gear == 3)
-		{
-			if (right != dq[gear + 1][6])
-			{
-				onlyRotate(4, -clock);
-			}
-
-			if (left == dq[gear - 1][2]) return;
-			// 3왼과 2오가 같으면 리턴
-
-			int l = dq[gear-1][6];
-			// 2왼 저장
-
-			int var = Rotate_Check_decrease(2, clock);
-
-			if(l == dq[1][2]) return;
-			// 2왼과 1오가 같으면 리턴
-
-			Rotate_Check_decrease(1, var);
-		}
-		else if (gear == 4)
-		{
-			if (left == dq[gear - 1][2]) return;
-			// 4왼과 3오가 같으면 리턴
-
-			int l = dq[3][6];
-			// 3의 왼쪽 저장
-
-			int var = Rotate_Check_decrease(3, clock);
-
-			if (l == dq[2][2]) return;
-			// 3왼과 2오가 같으면ㄹ리턴
-
-			l = dq[2][6];
-			// 2왼 저장
-			var = Rotate_Check_decrease(2, clock);
-
-			if (l == dq[1][2]) return;
-
-			Rotate_Check_decrease(1, clock);
-		}
 	}
-	else if (clock == -1) // counterclockwise
+	else if (clock == -1) // 반시계 방향이라면
 	{
 		dq[gear].push_back(dq[gear].front());
 
 		dq[gear].pop_front();
+	}
 
-		if (gear == 1) // 기어가 1일 때
-		{
-			if (right == dq[gear + 1][6]) return;
-			// 1의 오른쪽과 2의 왼쪽이 같으면 리턴
+	if (gear == 1)
+	{
+		// 1 오 vs 2 왼
+		if (right == gear_left(2)) return; // 1오와 2왼이 같다면 리턴
+		int r = gear_right(2); // 다르면 2를 회전 시키기 전에 2오를 저장한다.
+		int pos = Do_Rotate(2, clock); // 다르면 2회전
 
+		// 2 오 vs 3 왼
+		if (r == gear_left(3)) return; // 2오와 3왼이 같다면 리턴
+		r = gear_right(3); // 다르면 3을 회전 시키기 전에 3오를 저장한다.
+		pos = Do_Rotate(3, pos); // 3회전
 
-			int r = dq[gear + 1][2];
-			// 2의 오른쪽 저장
+		// 3 오 vs 4 왼
+		if (r == gear_left(4)) return; // 3오와 4왼이 같다면 리턴
+		Do_Rotate(4, pos); // 다르면 4회전
+	}
+	else if (gear == 2)
+	{
+		// 1 오 vs 2 왼 
+		if (gear_right(1) != left) onlyRotate(1, -clock);
+		
+		// 2 오 vs 3 왼
+		if (right == gear_left(3)) return;
+		int r = gear_right(3);
+		int pos = Do_Rotate(3, clock);
 
+		// 3 오 vs 4 왼
+		if (r == gear_left(4)) return;
+		Do_Rotate(4, pos);
+	}
+	else if (gear == 3)
+	{
+		// 3 오 vs 4 왼
+		if (right != gear_left(4)) onlyRotate(4, -clock);
+		
+		// 2 오 vs 3 왼
+		if (gear_right(2) == left) return;
+		int l = gear_left(2);
+		int pos = Do_Rotate(2, clock);
 
-			int var = Rotate_Check_increase(2, clock);
-			// 2 회전
+		// 1 오 vs 2 왼
+		if (gear_right(1) == l) return;
+		Do_Rotate(1, pos);
+	}
+	else if (gear == 4)
+	{
+		// 3 오 vs 4 왼	
+		if (gear_right(3) == left) return;
+		int l = gear_left(3);
+		int pos = Do_Rotate(3, clock);
 
+		// 2 오 vs 3 왼
+		if (gear_right(2) == l) return;
+		l = gear_left(2);
+		pos = Do_Rotate(2, pos);
 
-			if (r == dq[3][6]) return;
-			// 2의 오른쪽과 3의 왼쪽이 같으면 리턴
-
-			r = dq[gear + 2][2];
-			// r에 3의 오른쪽 저장
-
-			var = Rotate_Check_increase(3, var);
-
-			if (r == dq[4][6]) return;
-			// 3의 오른쪽과 4의 왼쪽이 같으면 리턴
-
-			Rotate_Check_increase(4, var);
-		}
-		else if (gear == 2)
-		{
-			if (left != dq[gear - 1][2]) // 1오른쪽과 2의 ㅇ힌쪽이 같이 않다면 실행
-			{
-				
-				onlyRotate(1, -clock);
-			}
-
-			if (right == dq[gear + 1][6]) return;
-			// 2의 오른쪽과 3의 왼쪽이 같으면 리턴
-
-			int r = dq[3][2];
-			// 3의 오른쪽 저장
-
-			int var = Rotate_Check_increase(3, clock);
-
-			if (r == dq[4][6]) return;
-			// 3오 == 4왼 리턴
-
-			Rotate_Check_increase(4, var);
-		}
-		else if (gear == 3)
-		{
-			if (right != dq[gear + 1][6])
-			{
-				onlyRotate(4, -clock);
-			}
-
-			if (left == dq[gear - 1][2]) return;
-			// 3왼과 2오가 같으면 리턴
-
-			int l = dq[gear - 1][6];
-			// 2왼 저장
-
-			int var = Rotate_Check_decrease(2, clock);
-
-			if (l == dq[1][2]) return;
-			// 2왼과 1오가 같으면 리턴
-
-			Rotate_Check_decrease(1, var);
-		}
-		else if (gear == 4)
-		{
-			if (left == dq[gear - 1][2]) return;
-			// 4왼과 3오가 같으면 리턴
-
-			int l = dq[3][6];
-			// 3의 왼쪽 저장
-
-			int var = Rotate_Check_decrease(3, clock);
-
-			if (l == dq[2][2]) return;
-			// 3왼과 2오가 같으면ㄹ리턴
-
-			l = dq[2][6];
-			// 2왼 저장
-			var = Rotate_Check_decrease(2, clock);
-
-			if (l == dq[1][2]) return;
-
-			Rotate_Check_decrease(1, clock);
-		}
+		// 1 오 vs 2 왼
+		if (gear_right(1) == l) return;
+		Do_Rotate(1, pos);
 	}
 }
 
-
-
 int main(void)
 {
-	// N : 0, S : 1
-
-	// clockwise : 1, counterclockwise : -1
-
 	int result = 0;
 	int input_num[8] = { 0, };
 	int rotation_count = 0;
@@ -303,32 +178,16 @@ int main(void)
 
 	scanf("%d", &rotation_count);
 
-	int var = rotation_count;
-
-	while (var--)
+	while (rotation_count--)
 	{
 		scanf("%d %d", &gearNumber, &clockVector);
 
 		Rotate_Gear(gearNumber, clockVector);
-
-		//printf("\n==(%d, %d)==\n", gearNumber, clockVector);
-
-		//for (int i = 1; i <= 4; i++)
-		//{
-		//	for (int j = 0; j < 8; j++)
-		//	{
-		//		printf("%d", dq[i][j]);
-		//	}
-
-		//	printf("\n");
-		//}
 	}
 
 	for (int i = 1; i <= 4; i++)
 	{
 		int score = dq[i].front();
-
-		//printf("%d번 째 톱니바퀴 맨 위 : %d\n", i, dq[i].front());
 
 		if (score == 0) // N
 		{
