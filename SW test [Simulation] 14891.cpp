@@ -211,3 +211,120 @@ int main(void)
 
 	return 0;
 }
+
+
+/*
+#include <iostream>
+#include <queue>
+#include <cstdio>
+#include <vector>
+#include <cstring>
+#include <string>
+#include <math.h>
+
+using namespace std;
+
+deque<int> dq[5];
+
+void simulation(int number, int v, int c)
+{
+	// c = 1 : right
+	// c = 2 : left
+	// c = 0 : left and right
+
+	if (v == 1) // clockwise
+	{
+		if (number + 1 <= 4 && (c == 0 || c == 1))
+		{
+			if (dq[number][2] != dq[number + 1][6])
+			{
+				simulation(number + 1, -v, 1);
+			}
+		}
+
+		if (number - 1 >= 1 && (c == 0 || c == 2))
+		{
+			if (dq[number][6] != dq[number - 1][2])
+			{
+				simulation(number - 1, -v, 2);
+			}
+		}
+
+		dq[number].push_front(dq[number].back());
+		dq[number].pop_back();
+	}
+	else if (v == -1) // counterclockwise
+	{
+		if (number + 1 <= 4 && (c == 0 || c == 1))
+		{
+			if (dq[number][2] != dq[number + 1][6])
+			{
+				simulation(number + 1, -v, 1);
+			}
+		}
+
+		if (number - 1 >= 1 && (c == 0 || c == 2))
+		{
+			if (dq[number][6] != dq[number - 1][2])
+			{
+				simulation(number - 1, -v, 2);
+			}
+		}
+
+		dq[number].push_back(dq[number].front());
+		dq[number].pop_front();
+	}
+}
+
+int main(void)
+{
+	int input_num = 0, result = 0;
+
+	for (int i = 1; i <= 4; i++)
+	{
+		for (int j = 0; j < 8; j++)
+		{
+			scanf("%1d", &input_num);
+
+			dq[i].push_back(input_num);
+		}
+	}
+
+	int K = 0, number = 0, ns = 0;
+
+	scanf("%d", &K);
+
+	while (K--)
+	{
+		scanf("%d %d", &number, &ns);
+
+		simulation(number, ns, 0);
+	}
+
+	for (int i = 1; i <= 4; i++)
+	{
+		int score = dq[i].front();
+
+		if (score == 0) // N
+		{
+			result += 0;
+		}
+		else if (score == 1) // S
+		{
+			if (i == 3) result += i + 1;
+			else if (i == 4)
+			{
+				result += 2 * i;
+			}
+			else
+			{
+				result += i;
+			}
+		}
+	}
+
+	printf("%d\n", result);
+
+	return 0;
+}
+*/
