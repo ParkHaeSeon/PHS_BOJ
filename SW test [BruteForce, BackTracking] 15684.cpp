@@ -16,7 +16,6 @@ int map[31][12] = { 0, };
 
 int result = -1;
 
-
 void BackTracking(int cnt, int total)
 {
 	if (result != -1) return;
@@ -76,8 +75,6 @@ void BackTracking(int cnt, int total)
 
 int main(void)
 {
-	// 2 ¡Â N ¡Â 10, 1 ¡Â H ¡Â 30, 0 ¡Â M ¡Â (N-1)¡¿H
-
 	scanf("%d %d %d", &N, &M, &H); // N : column, H : row
 
 	int input_cnt = M;
