@@ -5,6 +5,8 @@ int dp[101][10] = { 0, };
 int N = 0;
 long long sum = 0;
 
+// https://www.acmicpc.net/problem/10844
+
 void init()
 {
 	for (int i = 1; i <= 9; i++)
