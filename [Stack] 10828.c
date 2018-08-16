@@ -2,25 +2,27 @@
 #include <malloc.h>
 #include <string.h>
 
+// https://www.acmicpc.net/problem/10828
+
 typedef struct stack
 {
 	int data;
 	struct stack *next;
 }stack;
 
-stack *top_stack = NULL; // Ç×»ó À§¸¦ °¡¸®Å´. 
+stack *top_stack = NULL; // í•­ìƒ ìœ„ë¥¼ ê°€ë¦¬í‚´. 
 
 void push(int n)
 {
 	stack *temp = (stack*)malloc(sizeof(stack));
 
-	if (top_stack == NULL) // ¸Ç Ã³À½ »ğÀÔ(Á¸ÀçÇÏ´Â ³ëµå°¡ ¾ø´Ù¸é)
+	if (top_stack == NULL) // ë§¨ ì²˜ìŒ ì‚½ì…(ì¡´ì¬í•˜ëŠ” ë…¸ë“œê°€ ì—†ë‹¤ë©´)
 	{
 		temp->data = n;
 		temp->next = NULL;
 		top_stack = temp;
 	}
-	else // ÀÌ¹Ì Á¸ÀçÇÏ´Â ³ëµå°¡ 1°³ ÀÌ»óÀÌ¶ó¸é
+	else // ì´ë¯¸ ì¡´ì¬í•˜ëŠ” ë…¸ë“œê°€ 1ê°œ ì´ìƒì´ë¼ë©´
 	{
 		temp->data = n;
 		temp->next = top_stack;
@@ -30,12 +32,12 @@ void push(int n)
 
 int pop()
 {
-	if (top_stack == NULL) // ½ºÅÃ¿¡ µé¾îÀÖ´Â Á¤¼ö°¡ ¾øÀ» ¶§
+	if (top_stack == NULL) // ìŠ¤íƒì— ë“¤ì–´ìˆëŠ” ì •ìˆ˜ê°€ ì—†ì„ ë•Œ
 	{
 		return -1;
 	}
 
-	// Á¤¼ö°¡ µé¾îÀÖ´Â °æ¿ì
+	// ì •ìˆ˜ê°€ ë“¤ì–´ìˆëŠ” ê²½ìš°
 	int a = 0;
 
 	a = top_stack->data;
@@ -94,7 +96,7 @@ int top()
 
 int main(void)
 {
-	int N = 0; // ¸í·ÉÀÇ ¼ö
+	int N = 0; // ëª…ë ¹ì˜ ìˆ˜
 	char Input[10];
 	int num = 0;
 
