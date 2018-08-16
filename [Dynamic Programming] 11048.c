@@ -8,6 +8,8 @@
 
 using namespace std;
 
+// https://www.acmicpc.net/problem/11048
+
 int room[1001][1001] = { 0, };
 int dp[1001][1001] = { 0, };
 
