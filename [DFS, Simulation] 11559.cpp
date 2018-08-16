@@ -105,22 +105,39 @@ int main(void)
 				{
 					int replace_row = row - 1;
 
-					while (replace_row - 1 >= 0 && map[replace_row][column] == '.')
+					while (replace_row >= 0 && map[replace_row][column] == '.')
 					{
 						--replace_row;
-
-						if (map[replace_row][column] != '.')
-						{
-							swap(map[replace_row][column], map[row][column]);
-
-							break;
-						}
 					}
+
+					if (replace_row <= 0) replace_row = 0; 
+					// if while use, you must write condition because -1
+					// replace_now can be -1
+
+					if (map[replace_row][column] != '.')
+					{
+						swap(map[replace_row][column], map[row][column]);
+					}
+					
+					// under, for is answer also
+					//for (int replace_row = row - 1; replace_row >= 0; replace_row--)
+					//{
+					//	if (map[replace_row][column] != '.')
+					//	{
+					//		char temp = map[replace_row][column];
+					//		map[replace_row][column] = map[row][column];
+					//		map[row][column] = temp;
+					//		break; // 어차피 위의 2중 for문으로 인해 다음 map칸이 적용 되기 때문에 한 번 바꿔주면 바로 break
+					//	}
+					//}
+				}
 			}
+
 		}
 
 		if (cnt == 0) break;
 		else ++ans;
+
 	}
 
 	printf("%d\n", ans);
