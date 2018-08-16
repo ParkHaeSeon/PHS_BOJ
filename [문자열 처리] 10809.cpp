@@ -7,6 +7,8 @@ using namespace std;
 
 string s;
 
+// https://www.acmicpc.net/problem/10809
+
 int main(void)
 {
 	int pos = 0;
