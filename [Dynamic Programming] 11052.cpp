@@ -8,6 +8,8 @@
 
 using namespace std;
 
+// https://www.acmicpc.net/problem/11052
+
 int P[10001] = { 0, };
 int dp[10001] = { 0, }; 
 
