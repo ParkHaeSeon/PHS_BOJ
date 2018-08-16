@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+// https://www.acmicpc.net/problem/10992
+
 int main(void)
 {
 	int n = 0, c=0;
