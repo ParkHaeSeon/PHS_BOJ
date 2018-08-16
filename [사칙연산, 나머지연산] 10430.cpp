@@ -7,6 +7,8 @@
 
 using namespace std;
 
+// https://www.acmicpc.net/problem/10430
+
 int main(void)
 {
 	int A = 0, B = 0, C = 0;
