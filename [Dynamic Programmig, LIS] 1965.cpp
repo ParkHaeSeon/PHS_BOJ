@@ -9,6 +9,8 @@ int dp[1001] = { 0, };
 
 using namespace std;
 
+// https://www.acmicpc.net/problem/1965
+
 int main(void)
 {
 	int max = 0;
