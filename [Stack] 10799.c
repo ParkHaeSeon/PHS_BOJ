@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 
-// stack처럼 생각.
+// https://www.acmicpc.net/problem/10799
 
 int main(void)
 {
@@ -19,7 +19,7 @@ int main(void)
 		{
 			--cnt;
 
-			if (i>=1 && s[i - 1] == '(') // 레이저
+			if (i>=1 && s[i - 1] == '(')
 			{
 				sum += cnt;
 			}
