@@ -6,25 +6,29 @@ ver.0.0.1 - 180817
 
 
 
-# [문제 사이트]
+# 문제 사이트
 
 백준 온라인 저지
+
 (https://www.acmicpc.net/)
 
 
 SW Expert Academy
+
 (https://www.swexpertacademy.com/main/main.do)
 
 Algospot
+
 (https://algospot.com/judge/problem/list/?source=%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%20%EB%AC%B8%EC%A0%9C%20%ED%95%B4%EA%B2%B0%20%EC%A0%84%EB%9E%B5)
 
-# [스도쿠 참고사이트]
+
+# 스도쿠 참고사이트
 
 https://www.geeksforgeeks.org/backtracking-set-7-suduku/
 
 
 
-# [문제집]
+# 문제집
 
 1. 삼성SDS SW 역량 테스트 기출 문제집
 https://www.acmicpc.net/workbook/view/1152
@@ -41,7 +45,7 @@ https://www.acmicpc.net/workbook/view/1670
 https://www.acmicpc.net/problem/tag/%EB%B0%B1%ED%8A%B8%EB%9E%98%ED%82%B9
 
 
-# [삼성SDS SW 역량 테스트 대비 문제들]
+# 삼성SDS SW 역량 테스트 대비 문제들
 
 1. 다이나믹 프로그래밍 
  1로 만들기
