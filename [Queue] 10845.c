@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <malloc.h>
 
+// https://www.acmicpc.net/problem/10845
+
 typedef struct Queue
 {
 	int data;
