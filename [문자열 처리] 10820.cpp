@@ -7,6 +7,8 @@ using namespace std;
 
 string s;
 
+// https://www.acmicpc.net/problem/10820
+
 int main(void)
 {
 	int capital_Count = 0, small_Count = 0, empty_Count = 0, number_Count = 0;
