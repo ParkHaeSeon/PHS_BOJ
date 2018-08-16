@@ -1,0 +1,13 @@
+[스도쿠 참고사이트]
+https://www.geeksforgeeks.org/backtracking-set-7-suduku/
+
+[문제집]
+1. 삼성SDS
+https://www.acmicpc.net/workbook/view/1152
+
+2. BFS, DFS, 완전탐색
+https://www.acmicpc.net/workbook/view/1965
+https://www.acmicpc.net/workbook/view/1932
+
+3. 시뮬레이션
+https://www.acmicpc.net/workbook/view/1670
