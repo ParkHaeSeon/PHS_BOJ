@@ -8,6 +8,8 @@
 
 using namespace std;
 
+// https://www.acmicpc.net/problem/1309
+
 int N = 0;
 
 long long dp[100001][3] = { 0, };
