@@ -133,31 +133,31 @@ void moveRobot(int current)
 		}
 
 	}
-	else if (d == West) // ¼­
+	else if (d == West) // ì„œ
 	{
-		if (fourVectorChk() >= 4) // ·Îº¿ÀÌ ÀÖ´Â ÇöÀç À§Ä¡¿¡¼­ »óÇÏÁÂ¿ì ¸ğµÎ º®ÀÌ°Å³ª ¹æ¹®Çß´ø °÷ÀÌ¶ó¸é
+		if (fourVectorChk() >= 4) // ë¡œë´‡ì´ ìˆëŠ” í˜„ì¬ ìœ„ì¹˜ì—ì„œ ìƒí•˜ì¢Œìš° ëª¨ë‘ ë²½ì´ê±°ë‚˜ ë°©ë¬¸í–ˆë˜ ê³³ì´ë¼ë©´
 		{
-			++x; // µÚ·Î ÇÑ Ä­
+			++x; // ë’¤ë¡œ í•œ ì¹¸
 
-			if (x >= M || map[y][x] == Wall) // ±Ùµ¥ µÚ·Î ÇÑ Ä­ÇÑ À§Ä¡µµ º®ÀÌ¶ó¸é
+			if (x >= M || map[y][x] == Wall) // ê·¼ë° ë’¤ë¡œ í•œ ì¹¸í•œ ìœ„ì¹˜ë„ ë²½ì´ë¼ë©´
 			{
-				printf("%d\n", zero_count); // ³¡
+				printf("%d\n", zero_count); // ë
 				exit(0);
 			}
-			else // º®ÀÌ ¾Æ´Ï¶ó¸é
+			else // ë²½ì´ ì•„ë‹ˆë¼ë©´
 			{
 				rx = x;
 
-				if (!visit[ry][rx]) // ±Ùµ¥ ÈÄÁøÇÑ µÚ°¡ Ã»¼Ò¸¦ ¾È ÇÑ °÷ÀÌ¶ó¸é
+				if (!visit[ry][rx]) // ê·¼ë° í›„ì§„í•œ ë’¤ê°€ ì²­ì†Œë¥¼ ì•ˆ í•œ ê³³ì´ë¼ë©´
 				{
 					if (map[ry][rx] == 0) ++zero_count;
 					visit[ry][rx] = true;
 				}
 			}
 		}
-		else // »óÇÏÁÂ¿ì ÀÌµ¿ÇÒ °÷ÀÌ ÀÖ´Âµ¥ ¹«Á¶°Ç ¿ŞÂÊºÎÅÍ.
+		else // ìƒí•˜ì¢Œìš° ì´ë™í•  ê³³ì´ ìˆëŠ”ë° ë¬´ì¡°ê±´ ì™¼ìª½ë¶€í„°.
 		{
-			if (canMoveLeft(d)) // ¿ŞÂÊ¿¡ ÀÌµ¿ÇÑ °¡´ÉÇÑ °÷ÀÌ ÀÖ´Ù¸é
+			if (canMoveLeft(d)) // ì™¼ìª½ì— ì´ë™í•œ ê°€ëŠ¥í•œ ê³³ì´ ìˆë‹¤ë©´
 			{
 				++ry;
 
@@ -173,31 +173,31 @@ void moveRobot(int current)
 			}
 		}
 	}
-	else if (d == South) // ³²
+	else if (d == South) // ë‚¨
 	{
-		if (fourVectorChk() >= 4) // ·Îº¿ÀÌ ÀÖ´Â ÇöÀç À§Ä¡¿¡¼­ »óÇÏÁÂ¿ì ¸ğµÎ º®ÀÌ°Å³ª ¹æ¹®Çß´ø °÷ÀÌ¶ó¸é
+		if (fourVectorChk() >= 4) // ë¡œë´‡ì´ ìˆëŠ” í˜„ì¬ ìœ„ì¹˜ì—ì„œ ìƒí•˜ì¢Œìš° ëª¨ë‘ ë²½ì´ê±°ë‚˜ ë°©ë¬¸í–ˆë˜ ê³³ì´ë¼ë©´
 		{
-			--y; // µÚ·Î ÇÑ Ä­
+			--y; // ë’¤ë¡œ í•œ ì¹¸
 
-			if (y < 0 || map[y][x] == Wall) // ±Ùµ¥ µÚ·Î ÇÑ Ä­ÇÑ À§Ä¡µµ º®ÀÌ¶ó¸é
+			if (y < 0 || map[y][x] == Wall) // ê·¼ë° ë’¤ë¡œ í•œ ì¹¸í•œ ìœ„ì¹˜ë„ ë²½ì´ë¼ë©´
 			{
-				printf("%d\n", zero_count); // ³¡
+				printf("%d\n", zero_count); // ë
 				exit(0);
 			}
-			else // º®ÀÌ ¾Æ´Ï¶ó¸é
+			else // ë²½ì´ ì•„ë‹ˆë¼ë©´
 			{
 				ry = y;
 
-				if (!visit[ry][rx]) // ±Ùµ¥ ÈÄÁøÇÑ µÚ°¡ Ã»¼Ò¸¦ ¾È ÇÑ °÷ÀÌ¶ó¸é
+				if (!visit[ry][rx]) // ê·¼ë° í›„ì§„í•œ ë’¤ê°€ ì²­ì†Œë¥¼ ì•ˆ í•œ ê³³ì´ë¼ë©´
 				{
 					if (map[ry][rx] == 0) ++zero_count;
 					visit[ry][rx] = true;
 				}
 			}
 		}
-		else // »óÇÏÁÂ¿ì ÀÌµ¿ÇÒ °÷ÀÌ ÀÖ´Âµ¥ ¹«Á¶°Ç ¿ŞÂÊºÎÅÍ.
+		else // ìƒí•˜ì¢Œìš° ì´ë™í•  ê³³ì´ ìˆëŠ”ë° ë¬´ì¡°ê±´ ì™¼ìª½ë¶€í„°.
 		{
-			if (canMoveLeft(d)) // ¿ŞÂÊ¿¡ ÀÌµ¿ÇÑ °¡´ÉÇÑ °÷ÀÌ ÀÖ´Ù¸é
+			if (canMoveLeft(d)) // ì™¼ìª½ì— ì´ë™í•œ ê°€ëŠ¥í•œ ê³³ì´ ìˆë‹¤ë©´
 			{
 				++rx;
 
@@ -213,32 +213,32 @@ void moveRobot(int current)
 			}
 		}
 	}
-	else if (d == North) // ºÏ
+	else if (d == North) // ë¶
 	{
 
-		if (fourVectorChk() >= 4) // ·Îº¿ÀÌ ÀÖ´Â ÇöÀç À§Ä¡¿¡¼­ »óÇÏÁÂ¿ì ¸ğµÎ º®ÀÌ°Å³ª ¹æ¹®Çß´ø °÷ÀÌ¶ó¸é
+		if (fourVectorChk() >= 4) // ë¡œë´‡ì´ ìˆëŠ” í˜„ì¬ ìœ„ì¹˜ì—ì„œ ìƒí•˜ì¢Œìš° ëª¨ë‘ ë²½ì´ê±°ë‚˜ ë°©ë¬¸í–ˆë˜ ê³³ì´ë¼ë©´
 		{
-			++y; // µÚ·Î ÇÑ Ä­
+			++y; // ë’¤ë¡œ í•œ ì¹¸
 
-			if (y >= N || map[y][x] == Wall) // ±Ùµ¥ µÚ·Î ÇÑ Ä­ÇÑ À§Ä¡µµ º®ÀÌ¶ó¸é
+			if (y >= N || map[y][x] == Wall) // ê·¼ë° ë’¤ë¡œ í•œ ì¹¸í•œ ìœ„ì¹˜ë„ ë²½ì´ë¼ë©´
 			{
-				printf("%d\n", zero_count); // ³¡
+				printf("%d\n", zero_count); // ë
 				exit(0);
 			}
-			else // º®ÀÌ ¾Æ´Ï¶ó¸é
+			else // ë²½ì´ ì•„ë‹ˆë¼ë©´
 			{
 				ry = y;
 
-				if (!visit[ry][rx]) // ±Ùµ¥ ÈÄÁøÇÑ µÚ°¡ Ã»¼Ò¸¦ ¾È ÇÑ °÷ÀÌ¶ó¸é
+				if (!visit[ry][rx]) // ê·¼ë° í›„ì§„í•œ ë’¤ê°€ ì²­ì†Œë¥¼ ì•ˆ í•œ ê³³ì´ë¼ë©´
 				{
 					if (map[ry][rx] == 0) ++zero_count;
 					visit[ry][rx] = true;
 				}
 			}
 		}
-		else // »óÇÏÁÂ¿ì ÀÌµ¿ÇÒ °÷ÀÌ ÀÖ´Âµ¥ ¹«Á¶°Ç ¿ŞÂÊºÎÅÍ.
+		else // ìƒí•˜ì¢Œìš° ì´ë™í•  ê³³ì´ ìˆëŠ”ë° ë¬´ì¡°ê±´ ì™¼ìª½ë¶€í„°.
 		{
-			if (canMoveLeft(d)) // ¿ŞÂÊ¿¡ ÀÌµ¿ÇÑ °¡´ÉÇÑ °÷ÀÌ ÀÖ´Ù¸é
+			if (canMoveLeft(d)) // ì™¼ìª½ì— ì´ë™í•œ ê°€ëŠ¥í•œ ê³³ì´ ìˆë‹¤ë©´
 			{
 				--rx;
 
@@ -307,3 +307,205 @@ int main(void)
 
 	return 0;
 }
+
+
+
+/*
+ì•„ë˜ ì½”ë“œë„ ì°¸ê³ í•  ê²ƒ.
+
+ì¶œì²˜ : http://his130.tistory.com/313
+
+#include <iostream>
+#include <queue>
+#include <cstdio>
+#include <vector>
+#include <cstring>
+#include <string>
+#include <math.h>
+#include <algorithm>
+
+using namespace std;
+
+int n, m, r, c, d;
+int map[51][51];
+int turn[4] = { 3,0,1,2 };
+int dy[4] = { 1,-1,0,0 };
+int dx[4] = { 0,0,1,-1 };
+
+int main()
+{
+	cin >> n >> m >> r >> c >> d;
+
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < m; j++)
+		{
+			cin >> map[i][j];
+		}
+	}
+
+	int y = r, x = c;
+	int ans = 0;
+	while (true)
+	{
+		map[y][x] = 2;
+
+		if (d == 0)
+		{
+			if (x - 1 >= 0 && map[y][x - 1] == 0)
+			{
+				d = turn[d];
+				x = x - 1;
+				continue;
+			}
+
+			bool chk = true;
+			for (int i = 0; i < 4; i++)
+			{
+				int nx = y + dy[i];
+				int ny = x + dx[i];
+				if (nx >= 0 && ny >= 0 && nx < n && ny < m && map[nx][ny] == 0)
+				{
+					chk = false;
+					break;
+				}
+			}
+
+			if (!chk)
+			{
+				d = turn[d];
+				continue;
+			}
+
+			if (y + 1 >= n || map[y + 1][x] == 1)
+			{
+				break;
+			}
+
+			y = y + 1;
+
+		}
+		else if (d == 1)
+		{
+			if (y - 1 >= 0 && map[y - 1][x] == 0)
+			{
+				d = turn[d];
+				y = y - 1;
+				continue;
+			}
+
+			bool chk = true;
+			for (int i = 0; i < 4; i++)
+			{
+				int nx = y + dy[i];
+				int ny = x + dx[i];
+				if (nx >= 0 && ny >= 0 && nx < n && ny < m && map[nx][ny] == 0)
+				{
+					chk = false;
+					break;
+				}
+			}
+
+			if (!chk)
+			{
+				d = turn[d];
+				continue;
+			}
+
+			if (x - 1 < 0 || map[y][x - 1] == 1)
+			{
+				break;
+			}
+
+			x = x - 1;
+		}
+		else if (d == 2)
+		{
+			if (x + 1 < m && map[y][x + 1] == 0)
+			{
+				d = turn[d];
+				x = x + 1;
+				continue;
+			}
+
+			bool chk = true;
+			for (int i = 0; i < 4; i++)
+			{
+				int nx = y + dy[i];
+				int ny = x + dx[i];
+				if (nx >= 0 && ny >= 0 && nx < n && ny < m && map[nx][ny] == 0)
+				{
+					chk = false;
+					break;
+				}
+			}
+
+			if (!chk)
+			{
+				d = turn[d];
+				continue;
+			}
+
+			if (y - 1 < 0 || map[y - 1][x] == 1)
+			{
+				break;
+			}
+
+			y = y - 1;
+		}
+		else if (d == 3)
+		{
+			if (y + 1 < n && map[y + 1][x] == 0)
+			{
+				d = turn[d];
+				y = y + 1;
+				continue;
+			}
+
+			bool chk = true;
+			for (int i = 0; i < 4; i++)
+			{
+				int nx = y + dy[i];
+				int ny = x + dx[i];
+				if (nx >= 0 && ny >= 0 && nx < n && ny < m && map[nx][ny] == 0)
+				{
+					chk = false;
+					break;
+				}
+			}
+
+			if (!chk)
+			{
+				d = turn[d];
+				continue;
+			}
+
+			if (x + 1 >= m || map[y][x + 1] == 1)
+			{
+				break;
+			}
+
+			x = x + 1;
+
+		}
+
+	}
+
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < m; j++)
+		{
+			if (map[i][j] == 2)
+			{
+				ans++;
+			}
+		}
+	}
+
+	cout << ans << endl;
+
+	return 0;
+}
+
+
+*/
