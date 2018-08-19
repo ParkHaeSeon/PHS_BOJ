@@ -19,28 +19,23 @@ ver.0.0.1 - 180817
 * https://algospot.com/judge/problem/list/?source=%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%20%EB%AC%B8%EC%A0%9C%20%ED%95%B4%EA%B2%B0%20%EC%A0%84%EB%9E%B5
 
 
-## 스도쿠 참고사이트
-
-* https://www.geeksforgeeks.org/backtracking-set-7-suduku/
-
-
 ## SW 역량 테스트 대비 문제집(BOJ)
 
 * 삼성SDS SW 역량 테스트 기출 문제집
- * https://www.acmicpc.net/workbook/view/1152
+  * https://www.acmicpc.net/workbook/view/1152
 
 
 * BFS, DFS, 완전탐색
- * https://www.acmicpc.net/workbook/view/1965
- * https://www.acmicpc.net/workbook/view/1932
+  * https://www.acmicpc.net/workbook/view/1965
+  * https://www.acmicpc.net/workbook/view/1932
 
 
 * 시뮬레이션, 브루트포스
- * https://www.acmicpc.net/workbook/view/1670
+  * https://www.acmicpc.net/workbook/view/1670
 
 
 * 백트랙킹
- * https://www.acmicpc.net/problem/tag/%EB%B0%B1%ED%8A%B8%EB%9E%98%ED%82%B9
+  * https://www.acmicpc.net/problem/tag/%EB%B0%B1%ED%8A%B8%EB%9E%98%ED%82%B9
 
 
 ### 삼성SDS SW 역량 테스트 대비 문제들
