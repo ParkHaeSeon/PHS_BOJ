@@ -4,6 +4,9 @@ Self Programming Study
 
 ver.0.0.1 - 180817
 
+<br>
+<br>
+<br>
 
 ## 문제 사이트
 
@@ -19,7 +22,7 @@ ver.0.0.1 - 180817
 * https://algospot.com/judge/problem/list/?source=%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%20%EB%AC%B8%EC%A0%9C%20%ED%95%B4%EA%B2%B0%20%EC%A0%84%EB%9E%B5
 
 
-## SW 역량 테스트 대비 문제집(BOJ)
+## SW 역량 테스트 대비 문제집 (BOJ)
 
 * 삼성SDS 및 삼성전자 SW 역량 테스트 기출 문제집
   * https://www.acmicpc.net/workbook/view/1152
@@ -38,7 +41,7 @@ ver.0.0.1 - 180817
   * https://www.acmicpc.net/problem/tag/%EB%B0%B1%ED%8A%B8%EB%9E%98%ED%82%B9
 
 
-### 삼성SDS SW 역량 테스트 대비 문제들
+## SW 역량 테스트 대비 문제 문항 (BOJ)
 
 1. 다이나믹 프로그래밍 
   * 1로 만들기
