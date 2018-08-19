@@ -4,8 +4,6 @@ Self Programming Study
 
 ver.0.0.1 - 180817
 
-
-
 # 문제 사이트
 
 백준 온라인 저지
@@ -53,7 +51,7 @@ https://www.acmicpc.net/problem/tag/%EB%B0%B1%ED%8A%B8%EB%9E%98%ED%82%B9
 # 삼성SDS SW 역량 테스트 대비 문제들
 
 1. 다이나믹 프로그래밍 
- 1로 만들기
+ <li> 1로 만들기 <li>
  2×n 타일링
  2×n 타일링 2
  1, 2, 3 더하기
