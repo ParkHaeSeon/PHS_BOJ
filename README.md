@@ -1,22 +1,22 @@
 # PHS_BOJ
 
->> Self Programming Study
+Self Programming Study
 
->> ver.0.0.1 - 180817
+ver.0.0.1 - 180817
 
 
 ## 문제 사이트
 
 ### 백준 온라인 저지
->> <li> https://www.acmicpc.net/ <li> 
+<ul> https://www.acmicpc.net/ <ul>
 
 
 ### SW Expert Academy
->> <li> https://www.swexpertacademy.com/main/main.do <li>
+<ul> https://www.swexpertacademy.com/main/main.do <ul>
 
 
 ### Algospot
->> <li> https://algospot.com/judge/problem/list/?source=%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%20%EB%AC%B8%EC%A0%9C%20%ED%95%B4%EA%B2%B0%20%EC%A0%84%EB%9E%B5 <li>
+<ul> https://algospot.com/judge/problem/list/?source=%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%20%EB%AC%B8%EC%A0%9C%20%ED%95%B4%EA%B2%B0%20%EC%A0%84%EB%9E%B5 <ul>
 
 
 ## 스도쿠 참고사이트
