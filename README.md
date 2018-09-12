@@ -25,11 +25,7 @@ ver.0.0.2 - 180819
 <br>
 <br>
 
-## SW 역량 테스트 대비 문제집 (BOJ)
-
-* 삼성SDS 및 삼성전자 SW 역량 테스트 기출 문제집
-  * https://www.acmicpc.net/workbook/view/1152
-
+## 코딩 공부 문제집 (BOJ)
 
 * BFS, DFS, Brute Force
   * https://www.acmicpc.net/workbook/view/1965
@@ -47,7 +43,7 @@ ver.0.0.2 - 180819
 <br>
 <br> 
 
-## SW 역량 테스트 대비 문제 문항 (BOJ) 
+## 코딩 공부 문제 문항 (BOJ) 
 
 1. 다이나믹 프로그래밍 
    * 1로 만들기
