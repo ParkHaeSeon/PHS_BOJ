@@ -25,23 +25,18 @@ ver.0.0.2 - 180819
 <br>
 <br>
 
-/* ## 코딩 공부 문제집 (BOJ)
+## 코딩 공부 문제집 (BOJ)
 
 * BFS, DFS, Brute Force
   * https://www.acmicpc.net/workbook/view/1965
   * https://www.acmicpc.net/workbook/view/1932
-
-
-* Simulation, Brute Force
-  * https://www.acmicpc.net/workbook/view/1670
-
 
 * BackTracking
   * https://www.acmicpc.net/problem/tag/%EB%B0%B1%ED%8A%B8%EB%9E%98%ED%82%B9
 
 <br>
 <br>
-<br> */
+<br>
 
 ## 코딩 공부 문제 문항 (BOJ) 
 
