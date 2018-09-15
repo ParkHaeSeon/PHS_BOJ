@@ -25,7 +25,7 @@ ver.0.0.2 - 180819
 <br>
 <br>
 
-## 코딩 공부 문제집 (BOJ)
+/* ## 코딩 공부 문제집 (BOJ)
 
 * BFS, DFS, Brute Force
   * https://www.acmicpc.net/workbook/view/1965
@@ -41,7 +41,7 @@ ver.0.0.2 - 180819
 
 <br>
 <br>
-<br> 
+<br> */
 
 ## 코딩 공부 문제 문항 (BOJ) 
 
