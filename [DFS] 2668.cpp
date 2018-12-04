@@ -11,7 +11,7 @@ using namespace std;
 
 // https://www.acmicpc.net/problem/2668
 
-// °á±¹ ¹®Á¦°¡ ¿øÇÏ´Â °ÍÀº ½ÎÀÌÅ¬(Cycle)ÀÌ´Ù.
+// ê²°êµ­ ë¬¸ì œê°€ ì›í•˜ëŠ” ê²ƒì€ ì‹¸ì´í´(Cycle)ì´ë‹¤.
 
 int N = 0;
 
@@ -20,7 +20,6 @@ vector<int> node;
 vector<int> ans;
 
 bool visit[101] = { false, };
-
 bool cycle[101] = { false, };
 
 bool DFS(int startNum, int nodeNum)
