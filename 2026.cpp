@@ -11,7 +11,7 @@
 
 using namespace std;
 
-// ÃÑ K¸íÀÇ ÇĞ»ı Áß, N¸íÀ» ¼ÒÇ³ º¸³»·Á°í ÇÑ´Ù.
+// ì´ Nëª…ì˜ í•™ìƒ ì¤‘, Këª…ì„ ì†Œí’ ë³´ë‚´ë ¤ê³  í•œë‹¤.
 
 int K = 0, N = 0, F = 0;
 
@@ -31,10 +31,10 @@ void backtracking(int start)
 {
 	if (stop) return;
 
-	visit[start] = true;
-	v.push_back(start);
+	visit[start] = true; // ì•„ë˜ ifë¬¸ë³´ë‹¤ ë¨¼ì €
+	v.push_back(start); // ì•„ë˜ ifë¬¸ë³´ë‹¤ ë¨¼ì €
 
-	if (N == v.size())
+	if (K == v.size())
 	{
 		stop = true;
 
@@ -43,7 +43,7 @@ void backtracking(int start)
 		return;
 	}
 
-	for (int i = start + 1; i <= K; i++)
+	for (int i = start + 1; i <= N; i++)
 	{
 		if (visit[i]) continue;
 
@@ -66,7 +66,7 @@ int main(void)
 {
 	int s = 0, e = 0;
 
-	scanf("%d %d %d", &N, &K, &F);
+	scanf("%d %d %d", &K, &N, &F);
 
 	for (int i = 0; i < F; i++)
 	{
@@ -76,7 +76,7 @@ int main(void)
 		Friends[e][s] = true;
 	}
 
-	for (int i = 1; i <= K; i++)
+	for (int i = 1; i <= N; i++)
 	{
 		memset(visit, false, sizeof(visit));
 
