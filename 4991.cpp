@@ -1,3 +1,4 @@
+
 #include <iostream>
 #include <queue>
 #include <stack>
@@ -11,158 +12,153 @@
 
 using namespace std;
 
-#define INF 21*21*21*21
+int w = 0, h = 0;
 
-char Map[21][21];
+char room[22][22];
 
-vector<pair<pair<int, int>, int> > dirty;
+vector<pair<int, int> > dirty;
 
-int ry = 0, rx = 0;
-
-int r = 0, c = 0;
+int dist[11][11] = { 0, }; // [행][열] = [행]에서 [열]로 가는 최단 거리
 
 int dy[4] = { 0, 1, 0, -1 };
 int dx[4] = { 1, 0, -1, 0 };
 
-int dist[21][21][21][21] = { 0, };
+bool visit_bt[11] = { false, }; // backtracking() 함수 전용 visit 방문 처리 배열
 
 int result = 0;
 
-void BackTracking(int pos, pair<int, int> now, int sum)
+void backtracking(int now, int total, int pos)
 {
 	if (pos == dirty.size())
 	{
-		if (sum < result)
-		{
-			result = sum;
-		}
+		result = min(result, total);
 
 		return;
 	}
 
-	for (int i = 0; i < dirty.size(); i++)
+	for (int next = 1; next < dirty.size(); next++) // 0은 무조건 포함시켜야함.
 	{
-		int y = dirty.at(i).first.first;
-		int x = dirty.at(i).first.second;
+		if (now == next) continue;
 
-		pair<int, int> next = dirty.at(i).first;
-
-		// 더러운 곳이라면.
-		if (dirty.at(i).second == 1)
+		if (!visit_bt[next])
 		{
-			dirty.at(i).second = 0;
-			// 바꿔주고
+			visit_bt[next] = true;
 
-			BackTracking(pos + 1, next, sum + dist[now.first][now.second][next.first][next.second]);
+			total += dist[now][next];
 
-			dirty.at(i).second = 1;
-			// 다시 원상태
+			backtracking(next, total, pos + 1);
+
+			total -= dist[now][next];
+
+			visit_bt[next] = false;
 		}
 	}
+}
+
+int BFS(pair<int, int> s, pair<int, int> e)
+{
+	queue<pair<int, int> > q;
+
+	bool visit[22][22] = { false, };
+
+	q.push(s);
+
+	visit[s.first][s.second] = true;
+
+	int ret = 0;
+
+	while (!q.empty())
+	{
+		int qSize = q.size();
+
+		while (qSize--)
+		{
+			int r = q.front().first;
+			int c = q.front().second;
+
+			q.pop();
+
+			if (r == e.first && c == e.second) return ret;
+
+			for (int i = 0; i < 4; i++)
+			{
+				int y = r + dy[i];
+				int x = c + dx[i];
+
+				if (y < 0 || y >= h || x < 0 || x >= w || visit[y][x] || room[y][x] == 'x') continue;
+
+				q.push({ y, x });
+				visit[y][x] = true;
+			}
+		}
+
+		++ret;
+	}
+
+	return -1;
+}
+
+void init()
+{
+	memset(visit_bt, false, sizeof(visit_bt));
+
+	for (int i = 0; i < 11; i++) for (int j = 0; j < 11; j++) dist[i][j] = -1;
+
+	result = 22 * 22;
+
+	dirty.clear();
 }
 
 int main(void)
 {
 	while (1)
 	{
-		result = INF;
+		scanf("%d %d", &w, &h);
 
-		if (!dirty.empty()) dirty.clear();
+		if (w == 0 && h == 0) break;
 
-		for (int a = 0; a < 21; a++)
-			for (int b = 0; b < 21; b++)
-				for (int cc = 0; cc < 21; cc++)
-					for (int d = 0; d < 21; d++)
-						dist[a][b][cc][d] = INF;
-		// INF로 초기화 해줘야 한다.
-		// 왜냐하면, 백트래킹으로 계산할 때에 sum이 INF를 초과하는지 안 하는지 여부에 따라 정답이 달라진다.
+		init();
 
-		scanf("%d %d", &c, &r);
-
-		if (r == 0 && c == 0) break;
-
-		for (int i = 0; i < r; i++)
+		for (int i = 0; i < h; i++)
 		{
-			for (int j = 0; j < c; j++)
+			for (int j = 0; j < w; j++)
 			{
-				cin >> Map[i][j];
+				scanf(" %1c", &room[i][j]);
 
-				// 로봇
-				if (Map[i][j] == 'o')
-				{
-					dirty.push_back({ { i, j }, 0 });
-
-					ry = i;
-					rx = j;
-				}
-				else if (Map[i][j] == '*') // 더러운 칸
-				{
-					dirty.push_back({ { i, j }, 1 });
-				}
+				if (room[i][j] == 'o') dirty.insert(dirty.begin(), { i, j });
+				else if (room[i][j] == '*') dirty.push_back({ i, j });
 			}
 		}
 
+		bool stop = false;
+
 		for (int i = 0; i < dirty.size(); i++)
 		{
-			int cury = dirty.at(i).first.first;
-			int curx = dirty.at(i).first.second;
-
-			queue<pair<int, int> > q;
-
-			bool visit[21][21] = { false, };
-
-			bool stop = false;
-
-			int ret = 0;
-
-			q.push({ cury, curx });
-
-			visit[cury][curx] = true;
-
-			while (!q.empty())
+			for (int j = 0; j < dirty.size(); j++)
 			{
-				int qSize = q.size();
+				if (i >= j) continue; // 시간 단축
 
-				while (qSize--)
+				dist[i][j] = dist[j][i] = BFS(dirty.at(i), dirty.at(j));
+
+				if (dist[i][j] == -1)
 				{
-					int y = q.front().first;
-					int x = q.front().second;
-
-					q.pop();
-
-					/*
-					처음에 (cury != y || curx != x) 라는 조건도 추가했었는데,
-					생각해보니 이렇게하면 안 되었다. 모든 쓰레기들과 로봇 
-					이 모든 것들 사이의 거리를 dist 배열에 저장했어야 했다.
-
-					또한, 하나만 갱신하고 stop = true로 바꿔, break를(BFS의 return이라고 생각)
-					했었는데, 이것도 틀리다.
-					*/
-
-					if ((Map[y][x] == '*' || Map[y][x] == 'o')) dist[cury][curx][y][x] = ret;			
-
-					for (int j = 0; j < 4; j++)
-					{
-						int ny = y + dy[j];
-						int nx = x + dx[j];
-
-						if (ny < 0 || ny >= r || nx < 0 || nx >= c || Map[ny][nx] == 'x' || visit[ny][nx]) continue;
-
-						q.push({ ny, nx });
-						visit[ny][nx] = true;
-					}
+					stop = true;
+					break;
 				}
+			}
 
-				if (stop) break;
-
-				++ret;
-			}		
+			if (stop) break;
 		}
-		
-		BackTracking(1, { ry, rx }, 0);
 
-		if (result == INF) printf("-1\n");	
-		else printf("%d\n", result);
+		if (stop)
+		{
+			printf("-1\n");
+			continue;
+		}
+
+		backtracking(0, 0, 1);
+
+		printf("%d\n", result);
 	}
 
 	return 0;
