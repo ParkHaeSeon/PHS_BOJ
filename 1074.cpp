@@ -11,7 +11,7 @@
 
 using namespace std;
 
-int r = 0, c = 0, result = 0;
+int r = 0, c = 0, result = 0, MM;
 
 void search(int N, int y, int x, int go)
 {
@@ -24,12 +24,12 @@ void search(int N, int y, int x, int go)
 
 	if ((y <= r && r < y + go) && (x <= c && c < x + go))
 	{
-		// Z ¹æÇâ ¼ø¼­·Î ¹æ¹®.
+		// Z ë°©í–¥ ìˆœì„œë¡œ ë°©ë¬¸.
 
-		search(N / 2, y, x, go / 2); // À§ ¿ŞÂÊ
-		search(N / 2, y, x + go / 2, go / 2); // À§ ¿À¸¥ÂÊ
-		search(N / 2, y + go / 2, x, go / 2); // ¾Æ·¡ ¿ŞÂÊ
-		search(N / 2, y + go / 2, x + go / 2, go / 2); // ¾Æ·¡ ¿À¸¥ÂÊ
+		search(N / 2, y, x, go / 2); // ìœ„ ì™¼ìª½
+		search(N / 2, y, x + go / 2, go / 2); // ìœ„ ì˜¤ë¥¸ìª½
+		search(N / 2, y + go / 2, x, go / 2); // ì•„ë˜ ì™¼ìª½
+		search(N / 2, y + go / 2, x + go / 2, go / 2); // ì•„ë˜ ì˜¤ë¥¸ìª½
 	}
 	else result += go*go;
 
